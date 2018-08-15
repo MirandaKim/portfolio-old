@@ -1,0 +1,255 @@
+
+/****************************************************/
+/*                                                 */
+/*   Site Header CSS (_site-header.css)           */
+/*                                               */
+/************************************************/
+/*
+
+  - Style for the site header and it's elements
+  - Some elements within the header may be considered separate blocks
+    and will have a separate css file (e.g. logo and main-nav).
+  - The css is handled by PostCSS plugins (see ~/gulp/tasks/styles.task.js)
+  - These styles account for screen size and JS availablity (has-no-js).
+
+  *************
+  * Contents: *
+  *************
+
+  # Variables
+  # Site Header
+    > At Small
+    > Tiny Landscape
+  # Logo Wrapper
+    > At Small
+    > For Tiny
+  # Logo Image
+  # Logo Link
+  # Menu Wrapper
+      > At Small
+      > Has No JS
+  # Menu Toggle
+      > At Small
+      > Has No JS
+
+*/
+
+/**************************************/
+/*   # Variables                     */
+/************************************/
+
+$header__menu-transition-time: 1000ms;
+
+/**************************************/
+/*   # Site Header                   */
+/************************************/
+
+.site-header {
+  /*position*/
+  z-index: 500;
+  position: relative;
+  top: 0;
+  /*struture*/
+  width: 100vw;
+  /*spacing*/
+  padding-top: 30px;
+  padding-bottom: 50px;
+
+  /****************
+  *  > At Small   *
+  ****************/
+
+  @mixin atSmall {
+    /*position*/
+    position: fixed;
+    /*structure*/
+    height: 100vh;
+    width: 9rem;
+    /*spacing*/
+    padding-top: 15px;
+    padding-bottom: 0;
+  }
+
+  /**********************
+  *  > Tiny Landscape   *
+  **********************/
+
+  @mixin forTiny {
+    @mixin forLandscape {
+      padding-top: 10px;
+      padding-bottom: 0px;
+    }
+  }
+
+  /**************************************/
+  /*   # Logo Wrapper                  */
+  /************************************/
+
+  &__logo-wrapper {
+    /*position*/
+    z-index: -1;
+    position: relative;
+    /*structure*/
+    width: 45%;
+    /*spacing*/
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0;
+
+    /****************
+    *  > At Small   *
+    ****************/
+    @mixin atSmall {
+      /*display*/
+      display: inline-block; /*size to width of relative child*/
+      /*structure*/
+      width: auto;
+      /*spacing*/
+      padding-left: 15px;
+      padding-bottom: 0;
+    }
+
+    /****************
+    *  > For Tiny   *
+    ****************/
+
+    @mixin forTiny {
+      @mixin forLandscape {
+        /*structure*/
+        width: 20%;
+      }
+
+    }
+
+  /**************************************/
+  /*   # Logo Image                    */
+  /************************************/
+
+  &__logo-image {
+    /*position*/
+    position: relative;
+    /*structure*/
+    height: auto;
+    width: 100%;
+  }
+
+  /**************************************/
+  /*   # Logo Link                     */
+  /************************************/
+
+  &__logo-link {
+    /*position*/
+    z-index: 500;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*structure*/
+    height: 100%;
+    width: 100%;
+  }
+
+}
+
+  /**************************************/
+  /*   # Menu Wrapper                  */
+  /************************************/
+
+  &__menu-wrapper {
+    /*position*/
+    position: fixed;
+    left: -50%;
+    top: 0;
+    /*structure*/
+    height: 100vh;
+    width: 50%;
+    /*transition*/
+    transition-property: left;
+    transition-duration: $header__menu-transition-time;
+
+    .--menu-visible &{
+      /*position*/
+      left: 0;
+    }
+
+
+    /****************
+    *  > At Small   *
+    ****************/
+
+    @mixin atSmall {
+      /*position*/
+      position: relative;
+      left: 0;
+      /*width*/
+      width: 9rem;
+      /*spacing*/
+      margin-top: 15px;
+
+    }
+
+
+    /*****************
+    *  > Has No JS   *
+    *****************/
+
+    .has-no-js & {
+      /*position*/
+      position: relative;
+      left: 0;
+      /*structure*/
+      height: auto;
+      width: 100%;
+
+      @mixin forTiny {
+        /*spacing*/
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+    }
+
+
+  }
+
+  /**************************************/
+  /*   # Menu Toggle                   */
+  /************************************/
+
+  &__menu-toggle {
+    /*position*/
+    position: fixed;
+    top: 10px;
+    left: 0;
+    /*structure*/
+    width: 50px;
+    height: 50px;
+    /*transition*/
+    transition-property: left;
+    transition-duration: $header__menu-transition-time;
+
+    .--menu-visible & {
+      /*position*/
+      left: 50%;
+    }
+
+    /****************
+    *  > At Small   *
+    ****************/
+
+    @mixin atSmall {
+      /*display*/
+      display: none;
+    }
+
+    /*****************
+    *  > Has No JS   *
+    *****************/
+
+    .has-no-js & {
+      /*display*/
+      display: none;
+    }
+
+  }
+
+}

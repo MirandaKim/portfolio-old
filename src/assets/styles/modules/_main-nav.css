@@ -1,0 +1,141 @@
+
+/****************************************************/
+/*                                                 */
+/*   Main Navication CSS (_main-nav.css)          */
+/*                                               */
+/************************************************/
+/*
+
+  Style for the main navigation menu/links.
+  The following styles account for screen size and touch events.
+
+  *************
+  * Contents: *
+  *************
+
+  # Main Navigation
+    > At Small
+  # Link
+    > Hover (Small+ only)
+    > Active Link
+  # Link Displaced Till Focus (Skip to main content)
+
+*/
+
+/**************************************/
+/*   # Main Navigation               */
+/************************************/
+
+.main-nav {
+  /*position*/
+  position: relative;
+  top: 0;
+  /*structure*/
+  height: 100%;
+  width: 100%;
+  /*colors*/
+  background-color: rgba($color_offWhite, .95);
+  /*overflow*/
+  overflow-y: scroll;
+
+  /****************
+  *  > At Small   *
+  ****************/
+
+  @mixin atSmall {
+    /*position*/
+    position: relative;
+    /*spacing*/
+    padding-left: 5px;
+    padding-right: 10px;
+    margin-top: 5px;
+    /*colors*/
+    background-color: transparent;
+  }
+
+  /**************************************/
+  /*   # Link                          */
+  /************************************/
+
+  &__links {
+    /*spacing*/
+    margin-top: 0;
+  }
+
+  &__link {
+
+    /*position*/
+    position: relative;
+    /*colors*/
+    color: rgb($color_accentSec);
+
+    /***************************
+    *  > Hover (Small+ only)   *
+    ***************************/
+
+    @mixin atSmall {
+        .has-no-touch &:not(&--active):hover {
+          /*typography*/
+          font-weight: bold;
+          /*colors*/
+          color: rgb($color_accentTir);
+
+          &::before {
+            /*display*/
+            display: inline-block;
+
+          }
+        }
+    }
+
+    /*******************
+    *  > Active Link   *
+    *******************/
+
+    &--active {
+      /*colors*/
+      color: rgb($color_offWhite);
+      background-color: rgb($color_accentMain);
+
+      @mixin atSmall {
+        /*typography*/
+        font-weight: bold;
+        /*colors*/
+        color: rgb($color_accentMain);
+        background-color: transparent;
+
+      }
+    }
+
+  }
+
+
+  /**************************************/
+  /*   # Link Displace Till Focus      */
+  /************************************/
+
+  &__link--displace-till-focus {
+    /*position*/
+    position: fixed;
+    /*transform*/
+    transform: translateX(-110%);
+    /*colors*/
+    opacity: 0;
+    /*transition*/
+    transition-property: transform;
+    transition-duration: 500ms;
+
+    &::before {
+      /*display*/
+      display: none;
+    }
+
+    &:focus {
+      /*colors*/
+      opacity: 1;
+      /*transform*/
+      transform: translateX(0);
+    }
+
+  }
+}

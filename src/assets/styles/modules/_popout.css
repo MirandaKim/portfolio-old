@@ -1,0 +1,110 @@
+/****************************************************/
+/*                                                 */
+/*   Popout CSS (_popout.css)                     */
+/*                                               */
+/************************************************/
+/*
+
+  - Add a popout effect to an element (not to be confused with popup).
+  - This provides the element with a drop shadow and a background color
+  - Variations include rounded corners, shadow position, typography, etc.
+
+  *************
+  * Contents: *
+  *************
+
+  # Variables
+  # Popout
+    > Inset
+    > Rounded
+    > Colors
+    > Typography
+  # Inline Popout
+
+*/
+
+/**************************************/
+/*   # Variables                     */
+/************************************/
+
+  $popout__corner-round-value: 5px;
+
+/**************************************/
+/*   # Popout                        */
+/************************************/
+
+.popout {
+  /*spacing*/
+  padding: 10px;
+  /*colors*/
+  background-color: rgb($color_neutralMed);
+  /*fancy*/
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, .2);
+
+  /*************
+  *  > Inset   *
+  *************/
+
+  &--inset {
+    /*fancy*/
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, .2);
+  }
+
+  /***************
+  *  > Rounded   *
+  ***************/
+
+  &--rounded {
+    /*borders*/
+    border-radius: $popout__corner-round-value;
+  }
+
+  &--rounded-nw-se {
+    /*borders*/
+    border-top-left-radius: $popout__corner-round-value;
+    border-bottom-right-radius: $popout__corner-round-value;
+  }
+
+  /**************
+  *  > Colors   *
+  **************/
+
+  &--mild {
+    /*colors*/
+    background-color: rgb($color_attentionMild);
+    color: rgb($color_offWhite);
+  }
+
+  &--med {
+    /*colors*/
+    background-color: rgb($color_attentionMed);
+    color: rgb($color_offWhite);
+  }
+
+  &--hot {
+    /*colors*/
+    background-color: rgb($color_attentionHot);
+    color: rgb($color_offWhite);
+  }
+
+  /******************
+  *  > Typography   *
+  ******************/
+
+  &--text-align-center {
+    /*typography*/
+    text-align: center;
+  }
+
+  /**************************************/
+  /*   # Inline Popout                 */
+  /************************************/
+
+  &--inline {
+    /*spacing*/
+    padding: 2px;
+    /*typography*/
+    line-height: auto;
+  }
+
+}

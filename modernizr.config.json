@@ -1,0 +1,11 @@
+{
+  "classPrefix": "has-",
+  "options": [
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/svg",
+    "css/flexbox",
+    "test/css/animations"
+  ]
+}

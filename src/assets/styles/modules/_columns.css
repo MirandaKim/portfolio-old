@@ -1,0 +1,240 @@
+
+/****************************************************/
+/*                                                 */
+/*   Columns CSS (_columns.css)                   */
+/*                                               */
+/************************************************/
+/*
+
+  - Group all intended columns (pillars) into a group with the class columns
+    and give each pillar the class columns__pillar. This file includes classes
+    for customizing to appearance of these column pillars
+    (e.g. columns__pillar--no-side-margin).
+  - Flexbox is used to help display the columns (but there is a fallback if flexbox isn't desired or available).
+    Tip: Use Modernizr.js to check if flexbox is available to the browser (.has-no-flexbox)
+    (modernizr config: ~/modernizr.config.json)
+    (modernizr gulp task: ~/gulp/tasks/modernizr.task.js)
+  - Pillars are sized to increments of 12.
+    Ex: Class columns__pillar--3o12 will size the column to 3 units (about a forth of the wrapper)
+    Ex: Class columns__pillar--6o12 will size the column to 6 units (about half of the wrapper)
+    Ex: Class columns__pillar--12o12 will size the column to the full width (so... really no point to this one...)
+  - Suggestion:
+    Use class columns__pillar-no-side-margin on the last column of a group
+    so its edge is flush with the edge of the container.
+  - Suggestion:
+    Use class columns--not-for-tiny to vertically stack column pillars
+
+  *************
+  * Contents: *
+  *************
+
+  # Columns
+    > Alignment
+    > For Tiny
+  # Pillar
+      > Sizing
+      > Spacing
+  # No Flexbox
+
+*/
+
+/**************************************/
+/*   # Columns                       */
+/************************************/
+
+.columns {
+  /*display*/
+  display: flex;
+  /*position*/
+  position: relative;
+
+  /*****************
+  *  > Alignment   *
+  *****************/
+
+  &--children-align-vert {
+    /*position*/
+    align-items: center;
+  }
+
+  /****************
+  *  > For Tiny   *
+  ****************/
+
+  @mixin forTiny {
+    &--not-for-tiny {
+      /*display*/
+      display: block;
+        .columns__pillar {
+          width: 100%;
+        }
+      }
+
+    &--top-margin-for-tiny {
+        /*spacing*/
+        margin-top: 15px;
+    }
+  }
+
+  /**************************************/
+  /*   # Pillar                        */
+  /************************************/
+
+  &__pillar {
+    /*display*/
+    display: inline-block;
+    /*position*/
+    position: relative;
+    /*spacing*/
+    margin-right: 15px;
+
+    /**************
+    *  > Sizing   *
+    **************/
+
+    &--1o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: calc(100% / 12);
+    }
+
+    &--2o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: calc(2*(100% / 12));
+    }
+
+    &--3o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: calc(3*(100% / 12));
+    }
+
+    &--4o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: calc(4*(100% / 12));
+    }
+
+    &--5o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: calc(5*(100% / 12));
+    }
+
+    &--6o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: calc(6*(100% / 12));
+    }
+
+    &--7o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: calc(7*(100% / 12));
+    }
+
+    &--8o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: calc(8*(100% / 12));
+    }
+
+    &--9o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: calc(9*(100% / 12));
+    }
+
+    &--10o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: calc(10*(100% / 12));
+    }
+
+    &--11o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: calc(11*(100% / 12));
+    }
+
+    &--12o12 {
+      /*flex*/
+      flex-grow: 0;
+      /*structure*/
+      width: 100%;
+    }
+
+    /***************
+    *  > Spacing   *
+    ***************/
+
+    &--no-side-margin {
+      /*spacing*/
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    &--side-padding {
+      /*spacing*/
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    &--full-padding {
+      /*spacing*/
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    /****************
+    *  > For Tiny   *
+    ****************/
+
+    @mixin forTiny {
+      &--bottom-padding-for-tiny {
+          padding-bottom: 15px;
+      }
+    }
+
+  }
+
+}
+
+
+/**************************************/
+/*   # No Flexbox                    */
+/************************************/
+
+.has-no-flexbox .columns,
+.columns--no-flex {
+  /*display*/
+  display: block;
+  /*position*/
+  position: relative;
+  /*structure*/
+  height: auto;
+  /*fancy*/
+  @mixin clearfix;
+
+  .columns__pillar {
+    /*display*/
+    display: inline-block;
+    /*position*/
+    position: relative;
+    float: left;
+  }
+}

@@ -1,0 +1,162 @@
+
+/****************************************************/
+/*                                                 */
+/*   List CSS (_list.css)                         */
+/*                                               */
+/************************************************/
+/*
+
+  - Styles for lists.
+  - These styles can be applied to tags like ul, ol, and dl.
+  - Example of class use:
+      <dl class="list list--definitions list--hang-right">...</dl>
+
+  *************
+  * Contents: *
+  *************
+
+  # List
+    > Horizontal
+    > Hang Right
+  # Sub List
+  # Link List
+    > Full Width
+    > No Text Wrap
+    > Block Style
+  # Definition List
+    > Modifiers
+
+*/
+
+/**************************************/
+/*   # List                          */
+/************************************/
+
+.list {
+
+  /******************
+  *  > Horizontal   *
+  ******************/
+
+  &--horiz {
+    li {
+      /*display*/
+      display: inline-block;
+    }
+  }
+
+  /******************
+  *  > Hang Right   *
+  ******************/
+
+  &--hang-right {
+    /*position*/
+    float: right;
+  }
+
+
+  /**************************************/
+  /*   # Sub List                      */
+  /************************************/
+
+  &__sub-list {
+    /*spacing*/
+    padding-bottom: 30px;
+  }
+
+
+  /**************************************/
+  /*   # Link List                     */
+  /************************************/
+
+  &--links {
+    /*spacing*/
+    padding: 0;
+
+    li {
+      /*fancy*/
+      list-style: none;
+    }
+
+    a {
+      /*typography*/
+      text-decoration: none;
+      font-style: normal;
+    }
+
+    /******************
+    *  > Full Width   *
+    ******************/
+
+    &--link-full-width {
+
+      a {
+        /*display*/
+        display: block;
+        /*structure*/
+        width: 100%;
+        /*spacing*/
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    /********************
+    *  > No Text Wrap   *
+    ********************/
+
+    &--link-no-text-wrap {
+      a {
+        /*typography*/
+        white-space: nowrap;
+      }
+    }
+
+    /*******************
+    *  > Block Style   *
+    *******************/
+
+    &--block-style {
+      li {
+        /*spacing*/
+        padding-bottom: 0;
+      }
+      a {
+        /*spacing*/
+        padding-left: 15px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+
+  }
+
+  /**************************************/
+  /*   # Definition List               */
+  /************************************/
+
+  &--definitions {
+
+    dt {}
+
+    dd {
+      /*spacing*/
+      margin-left: 15px;
+      padding-bottom: 10px;
+    }
+
+    /*****************
+    *  > Modifiers   *
+    *****************/
+
+    &--bold-terms {
+      dt {
+        font-weight: bold;
+      }
+    }
+
+  }
+
+
+}

@@ -1,0 +1,42 @@
+{
+  "name": "myPortfolio",
+  "version": "1.0.0",
+  "description": "Portfolio site for Miranda Hoover",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "normalize.css": "^8.0.0",
+    "waypoints": "^4.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.6.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.24.5",
+    "del": "^3.0.0",
+    "fs-extra": "^7.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-hash": "^4.2.2",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-inject": "^4.3.2",
+    "gulp-modernizr": "^2.0.4",
+    "gulp-postcss": "^7.0.1",
+    "gulp-watch": "^5.0.0",
+    "postcss-hexrgba": "^1.0.1",
+    "postcss-import": "^11.1.0",
+    "postcss-mixins": "^6.2.0",
+    "postcss-nested": "^3.0.0",
+    "postcss-preset-env": "^5.2.1",
+    "postcss-simple-vars": "^4.1.0",
+    "webpack": "^4.12.1",
+    "webpack-merge": "^4.1.3",
+    "yargs": "^12.0.1"
+  }
+}

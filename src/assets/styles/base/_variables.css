@@ -1,0 +1,105 @@
+/****************************************************/
+/*                                                 */
+/*   CSS Variables (_variables.css)               */
+/*                                               */
+/************************************************/
+/*
+
+  - Contains the variables to be used by the css.
+  - These variables are handled by the PostCSS plugin postcss-simple-vars (see ~/gulp/tasks/styles.task.js)
+
+  *************
+  * Contents: *
+  *************
+
+  # Screen Sizes
+  # Colors
+    > Color Definitions
+    > Color Designations
+    > Color Assignments
+
+*/
+
+/**************************************/
+/*   # Screen Sizes                  */
+/************************************/
+
+$screen_tiny: 599px; /*Extra small devices (phones, 600px and down)*/
+$screen_small: 600px; /*Small devices (portrait tablets and large phones, 600px and up)*/
+$screen_medium: 768px; /*Medium devices (landscape tablets, 768px and up)*/
+$screen_large: 992px; /*Large devices (laptops/desktops, 992px and up)*/
+$screen_xl: 1200px; /* Extra large devices (large laptops and desktops, 1200px and up)*/
+
+/*The following sizes (squished, crushed, pancake) are for intended for brower windows with small height.*/
+/*SQUISHED*/
+$screen_squished_height: 550px;
+$screen_squished_width: $screen_small;
+/*CRUSHED*/
+$screen_crushed_height: 350px;
+$screen_crushed_width: $screen_small;
+/*PANCAKE*/
+$screen_pancake_height: 225px;
+$screen_pancake_width: $screen_small;
+
+
+/**************************************/
+/*   # Colors                        */
+/************************************/
+
+/*************************
+*  > Color Definitions   *
+*************************/
+
+/*GREYS*/
+$color_grey_light_01: 249, 250, 250;
+$color_grey_light_02: 234, 234, 234;
+$color_grey_med_01: 180, 181, 180;
+$color_grey_dark_01: 82, 82, 87;
+$color_grey_dark_02: 50, 50, 50;
+
+/*REDS*/
+$color_red_med_01: 237, 81, 103;
+
+/*BLUES*/
+$color_blue_light_01: 83, 206, 206;
+$color_blue_med_01: 45, 145, 163;
+$color_blue_dark_01: 11, 53, 53;
+
+/*GREENS*/
+$color_green_med_01: 141, 196, 21;
+
+/**************************
+*  > Color Designations   *
+**************************/
+
+/*BLACK/WHITE*/
+$color_offWhite: $color_grey_light_01;
+$color_offBlack: $color_grey_dark_02;
+
+/*NEUTRAL*/
+$color_neutralDark: $color_grey_dark_01;
+$color_neutralMed: $color_grey_light_02;
+$color_neutralLight: $color_grey_light_01;
+
+/*ACCENT*/
+$color_accentMain: $color_blue_med_01;
+$color_accentSec: $color_green_med_01;
+$color_accentTir: $color_blue_light_01;
+
+/*Attention*/
+$color_attentionMild: $color_grey_med_01;
+$color_attentionMed: $color_blue_med_01;
+$color_attentionHot: $color_red_med_01;
+
+
+/*************************
+*  > Color Assignments   *
+*************************/
+
+/*TEXT*/
+$color_textHeaderMain: $color_neutralMed;
+$color_textHeaderSec: $color_neutralDark;
+$color_textHeaderTert: $color_neutralDark;
+$color_textBody: $color_grey_dark_02;
+$color_textLink_inline: $color_accentSec;
+$color_textLink_inline_hover: $color_accentSec;

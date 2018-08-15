@@ -1,0 +1,184 @@
+/****************************************************/
+/*                                                 */
+/*   CSS Mixins (_mixins.css)                     */
+/*                                               */
+/************************************************/
+/*
+
+  - Library of css mixins with may be used by the css
+  - These mixins are handled by the PostCSS plugin postcss-mixins (see ~/gulp/tasks/styles.task.js)
+  - Mixin use example:
+      .center-vertically {
+        @mixin centerVert;
+      }
+  - Mixin use examples w/ content
+      ul {
+        @mixin atMedium {
+          width: 50%;
+        }
+      }
+      @mixin atTinyOnly {
+        .hidden-on-tiny {
+          display: hidden;
+        }
+      }
+
+
+  *************
+  * Contents: *
+  *************
+
+  # Media Queries
+    > Landscape
+    > Portrait
+    > Tiny Screen
+    > Small Screen
+    > Medium Screen
+    > Large Screen
+    > XL Screen
+    > Squished Screen
+    > Crushed Screen
+    > Pancake Screen
+
+  # Structural
+    > Clearfix
+    > Center Vertically
+
+*/
+
+/**************************************/
+/*   # Media Queries                 */
+/************************************/
+
+/******************
+*   > Landscape   *
+******************/
+
+@define-mixin forLandscape {
+  @media only screen and (orientation: landscape){
+    @mixin-content;
+  }
+}
+
+/*****************
+*   > Portrait   *
+*****************/
+
+@define-mixin forPortrait {
+  @media only screen and (orientation: portrait){
+    @mixin-content;
+  }
+}
+
+
+/*********************
+*   > Tiny Screen   *
+*********************/
+/* Extra small devices (phones, 600px and down) */
+@define-mixin forTiny {
+  @media only screen and (max-width: $screen_tiny) {
+    @mixin-content;
+  }
+}
+
+
+/*********************
+*   > Small Screen   *
+*********************/
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@define-mixin atSmall {
+  @media only screen and (min-width: $screen_small) {
+    @mixin-content;
+  }
+}
+
+/**********************
+*   > Medium Screen   *
+**********************/
+/* Medium devices (landscape tablets, 768px and up) */
+@define-mixin atMedium {
+  @media only screen and (min-width: $screen_medium) {
+    @mixin-content;
+  }
+}
+
+/*********************
+*   > Large Screen   *
+*********************/
+/* Large devices (laptops/desktops, 992px and up) */
+@define-mixin atLarge {
+  @media only screen and (min-width: $screen_large) {
+    @mixin-content;
+  }
+}
+
+/******************
+*   > XL Screen   *
+******************/
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@define-mixin atXL {
+  @media only screen and (min-width: $screen_xl) {
+    @mixin-content;
+  }
+}
+
+/************************
+*   > Squished Screen   *
+************************/
+/* A device that is longer than a portable device, but with a small height
+(e.g. squished browser window) */
+@define-mixin atSquished {
+  @media only screen and (max-height: $screen_squished_height) and (min-width: $screen_squished_width) {
+    @mixin-content;
+  }
+}
+
+/***********************
+*   > Crushed Screen   *
+***********************/
+/* A device that is longer than a portable device, but with a very small height
+(e.g. very squished browser window) */
+@define-mixin atCrushed {
+  @media only screen and (max-height: $screen_crushed_height) and (min-width: $screen_crushed_width) {
+    @mixin-content;
+  }
+}
+
+/***********************
+*   > Pancake Screen   *
+***********************/
+/* A device that is longer than a portable device,
+but with about as little height as you can get
+(e.g. very, very squished browser window) */
+@define-mixin atPancake {
+  @media only screen and (max-height: $screen_pancake_height) and (min-width: $screen_pancake_width) {
+    @mixin-content;
+  }
+}
+
+
+/**************************************/
+/*   # Structural                    */
+/************************************/
+
+/****************
+*  > Clearfix   *
+****************/
+@define-mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+/*************************
+*  > Center Vertically   *
+**************************
+This mixin centers the element vertically within its parent (assuming position).
+NOTE: the element and container must both have a position for this to work!
+*/
+@define-mixin centerVert {
+  top: 50%;
+  transform: translateY(-50%);
+}

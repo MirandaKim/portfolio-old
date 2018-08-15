@@ -1,0 +1,66 @@
+/*This file (along with ../base and ../modules) has been copies over from the Clean-Slate templates (clean version)
+If this was done by mistake, check ~/.trashed for your original files.*/
+
+/****************************************************/
+/*                                                 */
+/*   Styles (styles.css)                          */
+/*                                               */
+/************************************************/
+/*
+
+  - Import style files in here!
+  - This file is being accessed by other processes such as PostCSS, Webpack, and Modernizr.
+    If any styles are not imported into this file, they may not appear on the site.
+  - Remember, the order these files are imported in may make a difference.
+
+  *************
+  * Contents: *
+  *************
+
+  # Vendors
+  # Base
+  # Modules
+    > General Elements
+    > Target Elements
+*/
+
+
+/**************************************/
+/*   # Vendors                       */
+/************************************/
+
+@import 'normalize.css';
+
+/**************************************/
+/*   # Base                          */
+/************************************/
+@import './base/_fonts';
+@import './base/_variables';
+@import './base/_mixins';
+@import './base/_globals';
+@import './base/_general-modifiers';
+
+/**************************************/
+/*   # Modules                       */
+/************************************/
+
+/************************
+*  > General Elements   *
+************************/
+@import './modules/_list';
+@import './modules/_link';
+@import './modules/_headline';
+@import './modules/_click-to-copy';
+@import './modules/_popout';
+@import './modules/_columns';
+
+/***********************
+*  > Target Elements   *
+***********************/
+@import './modules/_site-body';
+@import './modules/_site-header';
+@import './modules/_main-nav';
+@import './modules/_menu-icon';
+@import './modules/_logo';
+@import './modules/_section';
+@import './modules/_site-footer';

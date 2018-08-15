@@ -1,0 +1,117 @@
+/****************************************************/
+/*                                                 */
+/*   General Modifiers (_general-modifiers.css)   */
+/*                                               */
+/************************************************/
+/*
+
+  - CSS modifier classes that are not associated with any blocks or elements.
+  - These tend to be more generic styles, which can be applied to many different elements.
+
+  *************
+  * Contents: *
+  *************
+
+  # Position
+  # Spacing
+  # Colors
+    > Backgrounds
+    > Text
+  # Typography
+    > Alignment
+
+*/
+
+/**************************************/
+/*   # Position                      */
+/************************************/
+
+.--center-vert {
+  @mixin centerVert;
+}
+
+/**************************************/
+/*   # Spacing                       */
+/************************************/
+
+.--top-margin {
+  /*spacing*/
+  margin-top: 15px;
+}
+
+.--full-padding-light {
+  /*padding*/
+  padding: 10px;
+}
+
+/**************************************/
+/*   # Colors                        */
+/************************************/
+
+/*******************
+*  > Backgrounds   *
+*******************/
+
+.--background-light {
+  /*colors*/
+  background-color: rgb($color_neutralLight);
+}
+
+.--background-medium {
+  /*colors*/
+  background-color: rgb($color_neutralMed);
+}
+
+.--background-dark {
+  /*colors*/
+  background-color: rgb($color_neutralDark);
+}
+
+.--background-accent {
+  /*colors*/
+  background-color: rgb($color_accentSec);
+}
+
+.--background-attention-mild {
+  /*colors*/
+  background-color: rgb($color_attentionMild);
+}
+
+.--background-attention-med {
+  /*colors*/
+  background-color: rgb($color_attentionMed);
+}
+
+.--background-attention-hot {
+  /*colors*/
+  background-color: rgb($color_attentionHot);
+}
+
+/*apply a light grey background to all the even immediate children of the element*/
+.--alternate-grey > :nth-child(even) {
+  /*colors*/
+  background-color: rgb($color_grey_light_01);
+}
+
+/************
+*  > Text   *
+************/
+
+.--color-dark {
+  /*colors*/
+  color: rgb($color_offBlack);
+}
+
+.--color-light {
+  /*colors*/
+  color: rgb($color_grey_light_02);
+}
+
+/**************************************/
+/*   # Typography                    */
+/************************************/
+
+.--center-align {
+  /*typography*/
+  text-align: center;
+}

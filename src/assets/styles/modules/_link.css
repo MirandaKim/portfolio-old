@@ -1,0 +1,68 @@
+
+/****************************************************/
+/*                                                 */
+/*   Link CSS (_link.css)                         */
+/*                                               */
+/************************************************/
+/*
+
+  - Contains several different styles for links.
+  - Hover styles are only given to elements that have a parent class of "has-no-touch",
+    this is to keep hover styles from appearing on touch devices.
+    The "has-no-touch" class may be provided/removed by script logic (~/src/assets/scripts/App.js)
+  - Apply link classes example:
+      <a class="link link--inline" href="#">Example</a>
+
+  *************
+  * Contents: *
+  *************
+
+  # Link
+  # Inline Link
+  # Light
+
+*/
+
+/**************************************/
+/*   # Link                          */
+/************************************/
+
+.link {
+  /*colors*/
+   color: rgb($color_textLink_inline);
+   /*hover*/
+   .has-no-touch &:hover{
+     /*colors*/
+     color: rgb($color_textLink_inline_hover);
+     /*typography*/
+    font-style: normal;
+   }
+
+   /**************************************/
+   /*   # Inline Link                   */
+   /************************************/
+
+   &--inline {
+     /*position*/
+     z-index: 0;
+     position: relative;
+     /*typography*/
+     text-align: center;
+     white-space: nowrap;
+     /*hover*/
+     .has-no-touch &:hover {
+       font-weight: bold;
+     }
+   }
+
+   /**************************************/
+   /*   # Light                         */
+   /************************************/
+
+   &--light {
+     /*colors*/
+     color: rgb($color_neutralLight);
+   }
+
+
+}

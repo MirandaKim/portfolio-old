@@ -1,0 +1,31 @@
+
+/****************************************************/
+/*                                                 */
+/*   Click To Copy CSS (_click-to-copy.css)       */
+/*                                               */
+/************************************************/
+/*
+
+  - Styles applied to elements with the click-to-copy feature.
+  - For more information on click-to-copy,
+    see the ClickToCopy module (~/src/assets/scripts/modules/ClickToCopy.class.js).
+
+  *************
+  * Contents: *
+  *************
+
+  # Click To Copy
+  
+*/
+
+/**************************************/
+/*   # Click To Copy                 */
+/************************************/
+
+.click-to-copy {
+  cursor: pointer;
+  /*
+  Consider creating pseudo elements (before/after)
+  to show "copy" on hover with an animation when clicked.
+  */
+}

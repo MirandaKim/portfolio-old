@@ -1,0 +1,179 @@
+/****************************************************/
+/*                                                 */
+/*   Menu Icon (_menu-icon.css)                   */
+/*                                               */
+/************************************************/
+/*
+
+  - This contains a menu icon and any available transitions.
+  - Default menu icon is a hamburger menu (there are no other versions at this time).
+  - To transition from initial icon to an x icon, give menu icon element the classes
+    'menu-icon' and 'menu-icon--trans-to-x', then toggle the class
+    'body--menu-open' on the body tag to transition between the two versions.
+  - Current menu open class (suggested in body tag) is
+
+  *************
+  * Contents: *
+  *************
+
+  # Variables
+  # Menu Icon
+      > Middle Line
+      > Top Line
+      > Bottom Line
+  # Transition to X
+      > Transition Settings
+      > X Structure
+
+*/
+
+/**************************************/
+/*   # Variables                     */
+/************************************/
+
+$menuIcon__lineHeight: 4px;
+$menuIcon__lineWidth: 25px;
+
+$menuIcon__color: rgb($color_accentMain);
+
+/**************************************/
+/*   # Menu Icon                     */
+/************************************/
+
+  .menu-icon {
+
+    /*******************
+    *  > Middle Line   *
+    *******************/
+
+    /*display*/
+    display: block;
+    /*position*/
+    position: relative;
+    top: 50%;
+    /*structure*/
+    height: $menuIcon__lineHeight;
+    width: $menuIcon__lineWidth;
+    /*spacing*/
+    margin-left: auto;
+    margin-right: auto;
+    /*transform*/
+    transform: translateY(-50%);
+    /*colors*/
+    background-color: $menuIcon__color;
+
+    /****************
+    *  > Top Line   *
+    ****************/
+
+    &::before {
+      /*content*/
+      content: "";
+      /*display*/
+      display: block;
+      /*position*/
+      position: relative;
+      top: -8px;
+      /*structure*/
+      height: $menuIcon__lineHeight;
+      width: $menuIcon__lineWidth;
+      /*colors*/
+      opacity: 1;
+      background-color: $menuIcon__color;
+
+    }
+
+    /*******************
+    *  > Bottom Line   *
+    *******************/
+
+    &::after {
+      /*content*/
+      content: "";
+      /*display*/
+      display: block;
+      /*position*/
+      position: relative;
+      top: 4px;
+      /*structure*/
+      height: $menuIcon__lineHeight;
+      width: $menuIcon__lineWidth;
+      /*color*/
+      background-color: $menuIcon__color;
+
+    }
+
+
+    /**************************************/
+    /*   # Transition to X               */
+    /************************************/
+
+    &--trans-to-x {
+
+      /***************************
+      *  > Transition Settings   *
+      ****************************/
+
+      /*transition*/
+      transition-property: all;
+      transition-duration: 400ms;
+      transition-timing-function: linear;
+
+      &::before {
+        /*transition*/
+        transition-property: all;
+        transition-duration: 100ms;
+        transition-timing-function: linear;
+      }
+
+      &::after {
+        /*transition*/
+        transition-property: all;
+        transition-duration: 500ms;
+        transition-timing-function: linear;
+      }
+
+
+      .--menu-visible & {
+
+        /*******************
+        *  > X Structure   *
+        *******************/
+
+        /*structure*/
+        width: $menuIcon__lineWidth;
+        height: $menuIcon__lineHeight;
+        /*borders*/
+        border-radius: 0;
+        /*transform*/
+        transform: translateY(-50%) rotate(45deg);
+        /*colors*/
+        opacity: 1;
+
+        &::before {
+          /*color*/
+          opacity: 0;
+          /*transform*/
+          transform: scaleX(0);
+          transform-origin: right;
+        }
+
+        &::after {
+          /*position*/
+          top: -110%;
+          /*structure*/
+          width: $menuIcon__lineWidth;
+          height: $menuIcon__lineHeight;
+          /*borders*/
+          border-radius: 0;
+          /*colors*/
+          opacity: 1;
+          /*transform*/
+          transform: rotate(270deg);
+        }
+
+
+      }
+
+    }
+  }
