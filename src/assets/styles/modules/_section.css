@@ -37,7 +37,10 @@ $fc__cutout-left-position: calc(-1 * ($fc__cutout-size + $fc__cutout-border-widt
 $fc__cutout-top-position: calc(-1 * ($fc__cutout-border-width * .5));
 $fc__cutout-total-height: calc($fc__cutout-border-width + $fc__cutout-size);
 $fc__default-color: rgb($color_neutralMed);
-$fc__color-a: rgb($color_accentMain);
+$fc__color-a: rgb($color_offWhite);
+$fc__color-b: rgb($color_accentMain);
+$fc__color-c: rgb($color_accentSec);
+$fc__color-d: rgb($color_accentTir);
 
 /**************************************/
 /*   # Section                       */
@@ -161,6 +164,39 @@ $fc__color-a: rgb($color_accentMain);
     }
     &--color-a::before {
       border-color: $fc__color-a;
+    }
+    /***************
+    *  > Color B   *
+    ***************/
+
+    &--color-b,
+    &--color-b::after {
+      background-color: $fc__color-b;
+    }
+    &--color-b::before {
+      border-color: $fc__color-b;
+    }
+    /***************
+    *  > Color C   *
+    ***************/
+
+    &--color-c,
+    &--color-c::after {
+      background-color: $fc__color-c;
+    }
+    &--color-c::before {
+      border-color: $fc__color-c;
+    }
+    /***************
+    *  > Color D   *
+    ***************/
+
+    &--color-d,
+    &--color-d::after {
+      background-color: $fc__color-d;
+    }
+    &--color-d::before {
+      border-color: $fc__color-d;
     }
 
 
