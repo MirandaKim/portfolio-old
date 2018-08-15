@@ -4,7 +4,6 @@ import $ from 'jquery';
 import CheckHasTouch from './modules/CheckHasTouch.class';
 import NavDisplay from './modules/NavDisplay.class';
 import SectionChange from './modules/SectionChange.class';
-// import StickyOnScroll from './modules/StickyOnScroll.class'; // disabled, but functional
 import ClickToCopy from './modules/ClickToCopy.class';
 
 /****************************************************/
@@ -111,26 +110,3 @@ let sectionChange = new SectionChange(section_selector, section_activeLinkClassS
 sectionChange.scrollUpOffset = "-5%";
 sectionChange.scrollDownOffset="20%";
 sectionChange.setEvents();
-
-
-/**************************************/
-/*   # Sticky On Scroll              */
-/************************************/
-
-/*
-  DEV NOTE:
-  The following Sticky On Scroll logic is disabled because it's not used for this design.
-  To use: Uncomment the following two lines of code, and uncomment the StickyOnScroll import statement at the top.
-  Give your sticky elements the class name 'make-sticky' and a trigger element the class 'trigger-sticky'.
-  The sticky elements should receive the class '--sticky' when the user scrolls to the trigger element.
-  See the StickyOnScroll module (./modules/StickyOnScroll.class.js) for more information and customization options.
-*/
-// let stickyOnScroll = new StickyOnScroll();
-// stickyOnScroll.execute();
-
-/**************************************/
-/*   # Click To Copy                 */
-/************************************/
-
-let clickToCopy = new ClickToCopy();
-clickToCopy.setEvents();
