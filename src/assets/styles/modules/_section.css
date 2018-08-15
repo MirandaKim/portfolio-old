@@ -121,7 +121,7 @@ $fc__color-d: rgb($color_accentTir);
       /*display*/
       display: block;
       /*position*/
-      z-index: -1;
+      /* z-index: -1; */
       position: absolute;
       top:  $fc__cutout-top-position;
       left: $fc__cutout-left-position;
