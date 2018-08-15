@@ -109,7 +109,7 @@ $fc__color-a: rgb($color_accentMain);
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 0;
-
+    /*colors*/
     background-color: $fc__default-color;
 
     &::before {
@@ -184,14 +184,14 @@ $fc__color-a: rgb($color_accentMain);
     /*display*/
     display: block;
     /*position*/
+    position: absolute;
     z-index: 100;
+    /*spacing*/
+    padding-left: 15px;
+    padding-right: 30px;
 
-    &--center-vert {
-      /*position*/
-      position: absolute;
-      top: 50%;
-      /*transform*/
-      transform: translateY(-50%);
+    &--no-left-padding {
+      padding-left: 0;
     }
   }
 
