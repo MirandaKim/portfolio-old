@@ -14,6 +14,7 @@
   *************
 
   # Site Body
+    > Modifiers
     > Restrict Width
     > At Small
     > At Large
@@ -77,5 +78,23 @@
       margin-left: 250px;
     }
   }
+
+
+    /*****************
+    *  > Modifiers   *
+    *****************/
+
+    &--fill-view {
+      /*spacing*/
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      margin-left: 0;
+    }
+
+    &--no-side-padding {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
 }

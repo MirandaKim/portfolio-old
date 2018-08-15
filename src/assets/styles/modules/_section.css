@@ -14,14 +14,30 @@
   * Contents: *
   *************
 
+  # Variables
   # Section
     > Focus
     > Modifiers
     > At Small
+  # Flash Card Modifier
   # Headline
   # Content
 
 */
+
+/**************************************/
+/*   # Variables                     */
+/************************************/
+
+$fc__gutter-width: 200px;
+$fc__top-margin: 200px;
+$fc__cutout-size: 150px;
+$fc__cutout-border-width: 100px;
+$fc__cutout-left-position: calc(-1 * ($fc__cutout-size + $fc__cutout-border-width) - 3px);
+$fc__cutout-top-position: calc(-1 * ($fc__cutout-border-width * .5));
+$fc__cutout-total-height: calc($fc__cutout-border-width + $fc__cutout-size);
+$fc__default-color: rgb($color_neutralMed);
+$fc__color-a: rgb($color_accentMain);
 
 /**************************************/
 /*   # Section                       */
@@ -80,6 +96,78 @@
   }
 
   /**************************************/
+  /*   # Flash Card Modifier           */
+  /************************************/
+
+  &--flash-card {
+    /*position*/
+    left: $fc__gutter-width;
+    /*structure*/
+    height: 100vh;
+    width: calc(100% - $fc__gutter-width);
+    /*spacing*/
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+
+    background-color: $fc__default-color;
+
+    &::before {
+      /*content*/
+      content: "";
+      /*display*/
+      display: block;
+      /*position*/
+      z-index: -1;
+      position: absolute;
+      top:  $fc__cutout-top-position;
+      left: $fc__cutout-left-position;
+      /*structure*/
+      height: $fc__cutout-size;
+      width: $fc__cutout-size;
+      /*borders*/
+      border-width: $fc__cutout-border-width;
+      border-style: solid;
+      border-radius: 50%;
+      /*colors*/
+      border-color: $fc__default-color;
+      background-color: transparent;
+      /*fancy*/
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, .8);
+    }
+
+    &::after {
+      /*content*/
+      content: "";
+      /*position*/
+      z-index: -1;
+      position: absolute;
+      bottom: 0;
+      left: calc($fc__gutter-width * -1);
+      /*structure*/
+      height: calc(100% - $fc__cutout-total-height);
+      width: calc($fc__gutter-width);
+      /*colors*/
+      background-color: $fc__default-color;
+    }
+
+    /***************
+    *  > Color A   *
+    ***************/
+
+    &--color-a,
+    &--color-a::after {
+      background-color: $fc__color-a;
+    }
+    &--color-a::before {
+      border-color: $fc__color-a;
+    }
+
+
+  }
+
+
+  /**************************************/
   /*   # Headline                      */
   /************************************/
 
@@ -93,6 +181,10 @@
   /************************************/
 
   &__content {
+    /*display*/
+    display: block;
+    /*position*/
+    z-index: 100;
 
     &--center-vert {
       /*position*/
