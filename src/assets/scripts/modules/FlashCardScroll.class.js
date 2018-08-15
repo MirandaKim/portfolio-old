@@ -28,6 +28,8 @@ import $ from 'jquery';
 
   # Protected
 
+  # Export
+
 */
 
 class FlashCardScroll {
@@ -45,7 +47,7 @@ class FlashCardScroll {
 /************************************/
 
   execute(){
-    
+
   }
 
 /**************************************/
@@ -54,3 +56,9 @@ class FlashCardScroll {
 
 
 }
+
+/**************************************/
+/*   # Export                        */
+/************************************/
+
+export default FlashCardScroll;
