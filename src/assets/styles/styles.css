@@ -50,7 +50,6 @@ If this was done by mistake, check ~/.trashed for your original files.*/
 @import './modules/_list';
 @import './modules/_link';
 @import './modules/_headline';
-@import './modules/_click-to-copy';
 @import './modules/_popout';
 @import './modules/_columns';
 

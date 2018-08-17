@@ -1,10 +1,8 @@
 require('./Vendors');
 import $ from 'jquery';
-
 import CheckHasTouch from './modules/CheckHasTouch.class';
 import NavDisplay from './modules/NavDisplay.class';
 import SectionChange from './modules/SectionChange.class';
-import ClickToCopy from './modules/ClickToCopy.class';
 
 /****************************************************/
 /*                                                 */
