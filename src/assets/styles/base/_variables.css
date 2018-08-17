@@ -41,6 +41,11 @@ $screen_crushed_width: $screen_small;
 $screen_pancake_height: 225px;
 $screen_pancake_width: $screen_small;
 
+/**************************************/
+/*   # Structure                     */
+/************************************/
+
+$structure_restricted_width: 750px; /*the max width for content*/
 
 /**************************************/
 /*   # Colors                        */

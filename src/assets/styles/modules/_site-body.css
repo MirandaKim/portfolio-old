@@ -40,7 +40,7 @@
 
   &--restrict-width {
     /*structure*/
-    max-width: 750px;
+    max-width: $structure_restricted_width;
   }
 
   /****************
