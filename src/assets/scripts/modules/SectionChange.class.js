@@ -24,14 +24,21 @@ import SmoothScroll from './SmoothScroll.class';
 
     # Config
       > Scroll Offsets
+      > Scroll Animation Time
 
     # Public
       > Set Events
-      > Change Config
+      > Section
 
     # Protected
       > Set Top Waypoint
       > Set Section Waypoints
+      > Scroll Down Handler
+      > Scroll Up Handler
+      > Change Section
+      > Change Active Link
+      > Change Section Indicator
+      > Set Animate Scroll
 
     # Export
 
@@ -43,13 +50,14 @@ class SectionChange {
   /*   # Constructor                   */
   /************************************/
 
-  constructor(sectionSelector = "section", activeLinkClass = "active") {
+  constructor(sectionSelector = "section", activeLinkClass = "active", activeSectionClass = "section-active") {
     this._atTopClass = "view--at-top"; // class to add to body tag when user is scrolled to the top of the document
     this._atTopOffset = "-10%"; //
     this._scrollDownOffset = "18%";
     this._scrollUpOffset = "-60%";
     this._sections = $(sectionSelector);
     this._activeLinkClass = activeLinkClass; // class to add to an anchor link when it's destination is selected
+    this._activeSectionClass = activeSectionClass; // class added to the section in that is active
     this._scrollTime = 1000; // the time in milliseconds it takes to scroll to a selected section
 
   }
@@ -118,6 +126,14 @@ class SectionChange {
     this._setSectionWaypoints();
     // Set animate scroll
     this._setSmoothScroll();
+  }
+
+  /*****************
+   *   > Section   *
+   ****************/
+
+  section(sectionIndex){
+    this._changeSection(sectionIndex);
   }
 
   /**************************************/
@@ -196,7 +212,7 @@ class SectionChange {
     }
   }
 
-  /****************************
+  /*****************************
    *   > Scroll Down Handler   *
    ****************************/
 
@@ -208,11 +224,10 @@ class SectionChange {
    sectionIndex(int) = the number automatically assigned to the section based on its position.
    */
   _scrollDownHandler(sectionIndex) {
-    this._changeActiveLink(sectionIndex);
-    this._changeSectionIndicator(sectionIndex);
+    this._changeSection(sectionIndex);
   }
 
-  /**************************
+  /***************************
    *   > Scroll Up Handler   *
    **************************/
 
@@ -224,11 +239,29 @@ class SectionChange {
    sectionIndex(int) = the number automatically assigned to the section based on its position.
    */
   _scrollUpHandler(sectionIndex) {
-    this._changeActiveLink(sectionIndex);
-    this._changeSectionIndicator(sectionIndex);
+    this._changeSection(sectionIndex);
   }
 
-  /***************************
+  /************************
+   *   > Change Section   *
+   ***********************/
+
+   _changeSection(sectionIndex) {
+     this._changeActiveSection(sectionIndex);
+     this._changeActiveLink(sectionIndex);
+     this._changeSectionIndicator(sectionIndex);
+   }
+
+  /******************************
+  *   > Change Active Section   *
+  ******************************/
+
+  _changeActiveSection(sectionIndex){
+    this._sections.removeClass(this._activeSectionClass);
+    this._sections[sectionIndex].classList.add(this._activeSectionClass);
+  }
+
+  /****************************
    *   > Change Active Link   *
    ***************************/
 
@@ -258,7 +291,7 @@ class SectionChange {
      $('body').attr('data-section', sectionIndex);
    }
 
-  /***************************
+  /****************************
    *   > Set Animate Scroll   *
    ***************************/
 
