@@ -116,12 +116,22 @@
     *  > Block Style   *
     *******************/
 
-    &--block-style {
+    &--link-block-style {
       li {
+        /*display*/
+        display: block;
+        /*position*/
+        position: relative;
+        /*structure*/
+        height: auto;
         /*spacing*/
         padding-bottom: 0;
       }
       a {
+        /*display*/
+        display: block;
+        /*position*/
+        position: relative;
         /*spacing*/
         padding-left: 15px;
         padding-right: 20px;

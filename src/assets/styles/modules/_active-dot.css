@@ -1,0 +1,32 @@
+.active-dot {
+
+  &::before {
+    /*content*/
+    content: "";
+    /*display*/
+    display: block;
+    /*position*/
+    z-index: 1;
+    position: absolute;
+    left: -3px;
+    top: 50%;
+    /*structure*/
+    height: 10px;
+    width: 10px;
+    /*transform*/
+    transform: translateY(-50%);
+    /*borders*/
+    border-radius: 50%;
+    /*colors*/
+    background-color: rgb($color_neutralDark);
+    opacity: 0;
+    /*transition*/
+    /* transition-property: all; */
+    /* transition-duration: 500ms; */
+  }
+
+  &.active::before {
+    opacity: 1;
+  }
+
+}
