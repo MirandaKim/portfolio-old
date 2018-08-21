@@ -170,7 +170,7 @@ class SectionChange {
        document.body.classList.add('going-down');
        document.body.classList.remove('going-up');
      }else{
-       body.addClass(this._atTopClass);
+       document.body.classList.add(this._atTopClass);
        document.body.classList.remove('going-down');
        document.body.classList.add('going-up');
      }
