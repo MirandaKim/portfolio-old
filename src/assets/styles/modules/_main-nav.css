@@ -67,7 +67,10 @@
     /*position*/
     position: relative;
     /*colors*/
-    color: rgb($color_accentSec);
+    color: rgb($color_accentMain);
+
+    transition-property: all;
+    transition-duration: 500ms;
 
     /***************************
     *  > Hover (Small+ only)   *
@@ -99,10 +102,12 @@
 
       @mixin atSmall {
         /*typography*/
-        font-weight: bold;
+        /* font-weight: bold; */
         /*colors*/
-        color: rgb($color_accentMain);
+        /* color: rgb($color_accentMain); */
         background-color: transparent;
+        /*fancy*/
+        text-shadow: 0 0 5px rgba(0, 0, 0, .8);
 
       }
     }
