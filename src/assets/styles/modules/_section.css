@@ -28,7 +28,7 @@
 /*   # Variables                     */
 /************************************/
 
-$section__default-color: rgb($color_neutralMed);
+$section__default-color: rgb($color_neutralLight);
 $section__color-a: rgb($color_offWhite);
 $section__color-b: rgb($color_accentMain);
 $section__color-c: rgb($color_accentSec);
@@ -49,9 +49,9 @@ $section__color-d: rgb($color_accentTir);
   /*spacing*/
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  margin-bottom: 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
   padding-right: 30px;
   padding-left: 40px;
   /*colors*/
@@ -77,8 +77,8 @@ $section__color-d: rgb($color_accentTir);
 
   &--full {
     height: 100vh;
+    min-height: 500px;
     width: 100%;
-    margin-top: 0;
     margin-bottom: 0;
   }
 
@@ -88,18 +88,14 @@ $section__color-d: rgb($color_accentTir);
 
   @mixin atSmall {
     /*spacing*/
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     padding-left: 20px;
     padding-right: 20px;
-
-    &--extra-margin-bottom {
-      /*spacing*/
-      margin-bottom: 150px;
-    }
 
     &--full {
       margin-bottom: 0;
     }
+
 
   }
 
@@ -179,9 +175,26 @@ $section__color-d: rgb($color_accentTir);
 
     &--restrict-width {
       max-width: $structure_restricted_width;
-      margin-left: auto;
-      margin-right: auto;
+      /* margin-left: auto; */
+      /* margin-right: auto; */
     }
+
+    &--center-vert {
+      top: 50%;
+      transform: translateY(-50%);
+      .section__headline {
+        margin-top: 0;
+      }
+    }
+
+
+      @mixin atSmall {
+        margin-left: 10rem;
+        &--center-vert-at-small {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
 
     /****************
     *  > At Large   *

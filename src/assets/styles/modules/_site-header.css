@@ -47,13 +47,13 @@ $header__menu-transition-time: 1000ms;
 .site-header {
   /*position*/
   z-index: 500;
-  position: relative;
+  position: absolute;
   top: 0;
   /*struture*/
   width: 100vw;
   /*spacing*/
   padding-top: 30px;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 
   /****************
   *  > At Small   *
@@ -68,6 +68,7 @@ $header__menu-transition-time: 1000ms;
     /*spacing*/
     padding-top: 15px;
     padding-bottom: 0;
+    margin-left: 30px;
   }
 
   /**********************
@@ -90,22 +91,26 @@ $header__menu-transition-time: 1000ms;
     z-index: -1;
     position: relative;
     /*structure*/
-    width: 45%;
+    width: 30%;
     /*spacing*/
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 0;
 
     /****************
     *  > At Small   *
     ****************/
     @mixin atSmall {
       /*display*/
-      display: inline-block; /*size to width of relative child*/
+      display: block;
       /*structure*/
-      width: auto;
+      /* width: auto; */
+      width: 80px;
       /*spacing*/
-      padding-left: 15px;
+      margin-left: 10px;
+      margin-right: 0;
+      margin-top: 20px;
+      padding-left: 0;
+      padding-right: 0;
       padding-bottom: 0;
     }
 
@@ -120,6 +125,8 @@ $header__menu-transition-time: 1000ms;
       }
 
     }
+
+  }
 
   /**************************************/
   /*   # Logo Image                    */
@@ -148,7 +155,6 @@ $header__menu-transition-time: 1000ms;
     width: 100%;
   }
 
-}
 
   /**************************************/
   /*   # Menu Wrapper                  */
@@ -180,10 +186,11 @@ $header__menu-transition-time: 1000ms;
       /*position*/
       position: relative;
       left: 0;
-      /*width*/
+      /*structure*/
+      height: auto;
       width: 9rem;
       /*spacing*/
-      margin-top: 15px;
+      margin-top: 50px;
 
     }
 
