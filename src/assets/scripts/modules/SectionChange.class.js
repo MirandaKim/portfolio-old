@@ -165,11 +165,14 @@ class SectionChange {
    when the user scrolls to/away from the top of the document.
    */
    _atTopHandler(direction){
-     let body = $('body');
      if(direction == "down"){
-       body.removeClass(this._atTopClass);
+       document.body.classList.remove(this._atTopClass);
+       document.body.classList.add('going-down');
+       document.body.classList.remove('going-up');
      }else{
        body.addClass(this._atTopClass);
+       document.body.classList.remove('going-down');
+       document.body.classList.add('going-up');
      }
    }
 
