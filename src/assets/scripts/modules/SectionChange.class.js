@@ -13,6 +13,7 @@ import SmoothScroll from './SmoothScroll.class';
   - This classes uses the waypoints module for directional scroll triggers
   - Each section is automatically given an index (based on its position)
     and the sections are changed based on that index.
+  - Body tag is given a 'going-up' or 'going-down' class based on the scroll direction on section change.
   - Current Features:
       * Add/Remove active class from links based on scroll direction and position.
 
@@ -220,11 +221,14 @@ class SectionChange {
    Scroll down handler:
    - Change active link to the current section
    - Change section indicator (data-section='0')
+   - Give body tag the 'going-down' class (remove going-up)
 
    sectionIndex(int) = the number automatically assigned to the section based on its position.
    */
   _scrollDownHandler(sectionIndex) {
     this._changeSection(sectionIndex);
+    document.body.classList.add('going-down');
+    document.body.classList.remove('going-up');
   }
 
   /***************************
@@ -235,11 +239,14 @@ class SectionChange {
    Scroll up handler:
    - Change active link to the current section
    - Change section indicator (data-section='0')
+   - Give body tag the 'going-up' class (remove going-down)
 
    sectionIndex(int) = the number automatically assigned to the section based on its position.
    */
   _scrollUpHandler(sectionIndex) {
     this._changeSection(sectionIndex);
+    document.body.classList.remove('going-down');
+    document.body.classList.add('going-up');
   }
 
   /************************
