@@ -8,6 +8,7 @@ const cssImport = require('postcss-import');
 const mixins = require('postcss-mixins');
 const hexRgba = require('postcss-hexrgba');
 const presetEnv = require('postcss-preset-env');
+const advancedVars = require('postcss-advanced-variables');
 
 /****************************************************/
 /*                                                 */
@@ -46,7 +47,8 @@ var destProd = './dist/assets'; // production destination for processed style fi
 let basePlugins = [ // include plugins common to all process environments
   cssImport,
   mixins,
-  cssvars,
+  // cssvars,
+  advancedVars,
   nested,
   hexRgba,
   autoprefixer,
