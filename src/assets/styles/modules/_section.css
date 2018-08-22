@@ -168,6 +168,12 @@ $section__color-d: rgb($color_accentTir);
       @mixin imageParallax;
     }
 
+    &--parallax--fixed-top {
+      @mixin imageParallax;
+      position: fixed;
+      background-attachment: scroll;
+    }
+
   }
   /***************
   *  > At Small   *

@@ -198,6 +198,6 @@ NOTE: the element and container must both have a position for this to work!
   background-size: cover;
   min-height: 100%;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
 }
