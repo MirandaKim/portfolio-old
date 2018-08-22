@@ -17,6 +17,8 @@
     > Color Definitions
     > Color Designations
     > Color Assignments
+  # Images
+    > URLs
 
 */
 
@@ -107,3 +109,17 @@ $color_textHeaderTert: $color_neutralDark;
 $color_textBody: $color_grey_dark_02;
 $color_textLink_inline: $color_accentSec;
 $color_textLink_inline_hover: $color_accentSec;
+
+/**************************************/
+/*   # Images                        */
+/************************************/
+
+/************
+*  > Urls   *
+************/
+
+$img_rootFile: ../images;
+
+$img_DejanZakic_keepMeHangin: url("$img_rootFile/dejan-zakic-767355-unsplash.jpg");
+
+$img_featured: $img_DejanZakic_keepMeHangin;

@@ -44,6 +44,9 @@
     > Clearfix
     > Center Vertically
 
+  # Images
+    > Parallax
+
 */
 
 /**************************************/
@@ -181,4 +184,20 @@ NOTE: the element and container must both have a position for this to work!
 @define-mixin centerVert {
   top: 50%;
   transform: translateY(-50%);
+}
+
+/**************************************/
+/*   # Images                        */
+/************************************/
+
+/****************
+*  > Parallax   *
+****************/
+
+@define-mixin imageParallax{
+  background-size: cover;
+  min-height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }

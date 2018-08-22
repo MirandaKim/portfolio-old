@@ -19,6 +19,9 @@
     > Focus
     > Modifiers
     > At Small
+  # Background
+    > Parallax
+    > At Small
   # Headline
   # Content
 
@@ -144,7 +147,41 @@ $section__color-d: rgb($color_accentTir);
       border-color: $section__color-d;
     }
 
+  /**************************************/
+  /*   # Background                    */
+  /************************************/
 
+  &__background {
+    /*position*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*structure*/
+    height: 100%;
+    width: 100%;
+
+    /****************
+    *  > Parallax   *
+    ****************/
+
+    &--parallax {
+      @mixin imageParallax;
+    }
+
+  }
+  /***************
+  *  > At Small   *
+  ***************/
+
+  @mixin atSmall {
+
+    &__background--featured-img-at-small {
+
+        background-image: $img_featured;
+
+    }
+
+  }
 
   /**************************************/
   /*   # Headline                      */
@@ -177,6 +214,10 @@ $section__color-d: rgb($color_accentTir);
       max-width: $structure_restricted_width;
       /* margin-left: auto; */
       /* margin-right: auto; */
+    }
+
+    &--narrow {
+      width: 350px;
     }
 
     &--center-vert {
