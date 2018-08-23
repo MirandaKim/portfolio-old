@@ -31,6 +31,7 @@ $screen_small: 600px; /*Small devices (portrait tablets and large phones, 600px 
 $screen_medium: 768px; /*Medium devices (landscape tablets, 768px and up)*/
 $screen_large: 992px; /*Large devices (laptops/desktops, 992px and up)*/
 $screen_xl: 1200px; /* Extra large devices (large laptops and desktops, 1200px and up)*/
+$screen_xxl: 2000px; /* For thos extra-extra screens*/
 
 /*The following sizes (squished, crushed, pancake) are for intended for brower windows with small height.*/
 /*SQUISHED*/
@@ -61,7 +62,7 @@ $structure_restricted_width: 700px; /*the max width for content*/
 $color_grey_light_01: 224, 224, 224;
 $color_grey_med_01: 180, 181, 180;
 $color_grey_dark_01: 82, 82, 87;
-$color_grey_dark_02: 50, 50, 50;
+$color_grey_dark_02: 28, 28, 28;
 
 /*REDS*/
 $color_red_med_01: 237, 81, 103;
@@ -119,7 +120,13 @@ $color_textLink_inline_hover: $color_accentSec;
 ************/
 
 $img_rootFile: ../images;
+$img_bkgdRoot: $img_rootFile/backgrounds;
 
-$img_DejanZakic_keepMeHangin: url("$img_rootFile/dejan-zakic-767355-unsplash.jpg");
+$img_keepMeHangin--small: url("$img_bkgdRoot/dejan-zakic-767355-unsplash--small.jpg");
+$img_keepMeHangin--large: url("$img_bkgdRoot/dejan-zakic-767355-unsplash--large.jpg");
+$img_keepMeHangin--xl: url("$img_bkgdRoot/dejan-zakic-767355-unsplash--xlarge.jpg");
 
-$img_featured: $img_DejanZakic_keepMeHangin;
+$img_featured: $img_keepMeHangin--small;
+$img_featured--small: $img_keepMeHangin--small;
+$img_featured--large: $img_keepMeHangin--large;
+$img_featured--xl: $img_keepMeHangin--xl;

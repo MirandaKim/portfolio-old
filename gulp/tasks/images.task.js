@@ -31,8 +31,10 @@ let prodDest = './dist/assets/images'; // production destination
 
 let imageSrc = [
     /* Images to optimize */
-    `./src/assets/images/**/*`
+    `./src/assets/images/**/*`,
     /* Exclude from optimization */
+    '!.DS_Store',
+    '!./src/assets/images/ignore/**'
     //`!./src/assets/images/icons/**/*`, // consider excluding this path if there is a separarate task for sprite icons
     //`!./src/assets/images/icons/**/*` // consider excluding this path if there is a separarate task for sprite icons
   ];

@@ -31,7 +31,7 @@
 /*   # Variables                     */
 /************************************/
 
-$section__default-color: rgb($color_neutralLight);
+$section__default-color: transparent;
 $section__color-a: rgb($color_offWhite);
 $section__color-b: rgb($color_accentMain);
 $section__color-c: rgb($color_accentSec);
@@ -160,6 +160,12 @@ $section__color-d: rgb($color_accentTir);
     height: 100%;
     width: 100%;
 
+    /* @mixin forPortrait {
+      transform: rotate(90deg);
+      height: 100vw;
+      width: 100vh;
+    } */
+
     /****************
     *  > Parallax   *
     ****************/
@@ -181,11 +187,7 @@ $section__color-d: rgb($color_accentTir);
 
   @mixin atSmall {
 
-    &__background--featured-img-at-small {
 
-        background-image: $img_featured;
-
-    }
 
   }
 

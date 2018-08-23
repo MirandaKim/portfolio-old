@@ -125,6 +125,16 @@
   }
 }
 
+/******************
+*   > XXL Screen   *
+******************/
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@define-mixin atXXL {
+  @media only screen and (min-width: $screen_xxl) {
+    @mixin-content;
+  }
+}
+
 /************************
 *   > Squished Screen   *
 ************************/
