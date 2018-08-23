@@ -225,7 +225,7 @@ $section__color-d: rgb($color_accentTir);
     }
 
     &--narrow {
-      width: 350px;
+      width: 500px;
     }
 
     &--center-vert {
