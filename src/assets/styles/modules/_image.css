@@ -4,16 +4,11 @@
 
   &--featured {
 
-    background-image: $img_featured;
+    background-image: $img_featured--small;
 
   }
 
   @mixin forLandscape {
-    /* @mixin atSmall {
-      &--featured {
-        background-image: $img_featured--small;
-      }
-    } */
 
     @mixin atMedium {
       &--featured {
@@ -21,11 +16,6 @@
       }
     }
 
-    /* @mixin atLarge {
-      &--featured {
-        background-image: $img_featured--large;
-      }
-    } */
 
     @mixin atXL {
       &--featured {
@@ -33,11 +23,6 @@
       }
     }
 
-    /* @mixin atXXL {
-      &--featured {
-        background-image: $img_featured--full;
-      }
-    } */
   }
 
   @mixin forPortrait {
@@ -61,70 +46,5 @@
     }
 
   }
-
-
-    /* @mixin forPortrait {
-
-        &--featured {
-          background-image: $img_featured--small--vert;
-        }
-
-
-      @mixin atSmall {
-        &--featured {
-          background-image: $img_featured--large--vert;
-        }
-      }
-
-
-      @mixin atLarge {
-        &--featured {
-           background-image: $img_featured--xl--vert;
-        }
-      }
-
-    } */
-
-
-/*
-  @mixin forPortrait {
-
-
-      &--featured {
-        background-image: $img_featured--small--vert;
-      }
-
-
-    @mixin atSmall {
-      &--featured {
-        background-image: $img_featured--medium--vert;
-      }
-    }
-
-    @mixin atMedium {
-      &--featured {
-        background-image: $img_featured--large--vert;
-      }
-    }
-
-    @mixin atLarge {
-      &--featured {
-
-      }
-    }
-
-    @mixin atXL {
-      &--featured {
-        background-image: $img_featured--xl--vert;
-      }
-    }
-
-    @mixin atXXL {
-      &--featured {
-        background-image: $img_featured--full--vert;
-      }
-    }
-  } */
-
 
 }
