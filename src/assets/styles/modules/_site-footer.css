@@ -36,7 +36,7 @@
   padding-left: 15px;
   padding-right: 15px;
   /*colors*/
-  background-color: rgb($color_offBlack);
+  background-color: rgba($color_offWhite, .1);
 
   /****************
   *  > At Small   *
