@@ -160,12 +160,6 @@ $section__color-d: rgb($color_accentTir);
     height: 100%;
     width: 100%;
 
-    /* @mixin forPortrait {
-      transform: rotate(90deg);
-      height: 100vw;
-      width: 100vh;
-    } */
-
     /****************
     *  > Parallax   *
     ****************/
@@ -178,6 +172,30 @@ $section__color-d: rgb($color_accentTir);
       @mixin imageParallax;
       position: fixed;
       background-attachment: scroll;
+    }
+
+    /****************
+    *  > Overlays   *
+    ****************/
+
+    &--overlay-dark-left::before {
+      /*content*/
+      content: "";
+      /*display*/
+      display: block;
+      /*position*/
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: -20px;
+      /*structure*/
+      height: 100%;
+      width: calc(9rem + 20px);
+      /*colors*/
+      background-color: rgba($color_offBlack, .8);
+      /*filters*/
+      filter: blur(30px);
+
     }
 
   }
