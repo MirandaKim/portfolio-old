@@ -54,6 +54,7 @@ If this was done by mistake, check ~/.trashed for your original files.*/
 @import './modules/_columns';
 @import './modules/_active-dot';
 @import './modules/_image';
+@import './modules/_paragraph';
 
 /***********************
 *  > Target Elements   *
