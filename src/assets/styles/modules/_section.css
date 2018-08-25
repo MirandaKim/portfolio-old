@@ -294,7 +294,7 @@ $section__color-d: rgb($color_accentTir);
     top: 0;
     right: 0;
     /*structure*/
-    width: 420px;
+    max-width: 420px;
     /*spacing*/
     margin: 0;
 
