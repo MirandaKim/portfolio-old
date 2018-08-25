@@ -18,7 +18,7 @@
   # Link
     > Hover (Small+ only)
     > Active Link
-  # Link Displaced Till Focus (Skip to main content)
+  # Skip Main Content
 
 */
 
@@ -95,7 +95,7 @@
     *  > Active Link   *
     *******************/
 
-    &--active {
+    &.active {
       /*colors*/
       color: rgb($color_offWhite);
       background-color: rgb($color_accentMain);
@@ -116,31 +116,26 @@
 
 
   /**************************************/
-  /*   # Link Displace Till Focus      */
+  /*   # Skip Main Content             */
   /************************************/
 
-  &__link--displace-till-focus {
-    /*position*/
-    position: fixed;
-    /*transform*/
-    transform: translateX(-110%);
+  &__skip-main-content {
+    /*spacing*/
+    padding: 5px;
+    /*borders*/
+    border-bottom-right-radius: 5px;
+    /*typography*/
+    font-size: 1.2rem;
     /*colors*/
-    opacity: 0;
-    /*transition*/
-    transition-property: transform;
-    transition-duration: 500ms;
+    background-color: rgb($color_offWhite);
+    color: rgb($color_attentionMed);
+    box-shadow: initial;
 
-    &::before {
-      /*display*/
-      display: none;
-    }
-
-    &:focus {
+    .has-no-touch &:hover {
       /*colors*/
-      opacity: 1;
-      /*transform*/
-      transform: translateX(0);
+      color: rgb($color_attentionHot);
     }
 
   }
+
 }

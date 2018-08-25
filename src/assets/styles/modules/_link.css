@@ -20,6 +20,7 @@
   # Link
   # Inline Link
   # Light
+  # Displace Till Focus
 
 */
 
@@ -62,6 +63,33 @@
    &--light {
      /*colors*/
      color: rgb($color_neutralLight);
+   }
+
+   /**************************************/
+   /*   # Displace Till Focus           */
+   /************************************/
+
+   &--displace-till-focus {
+     /*position*/
+     position: fixed;
+     top: 0;
+     left: 0;
+     /*transform*/
+     /* transform: translateX(-110%); */
+     transform: translateY(-100%);
+     /*colors*/
+     opacity: 0;
+     /*transition*/
+     transition-property: transform;
+     transition-duration: 500ms;
+
+
+     &:focus {
+       /*colors*/
+       opacity: 1;
+       /*transform*/
+       transform: translateY(0);
+     }
    }
 
 
