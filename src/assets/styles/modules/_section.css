@@ -24,6 +24,13 @@
     > At Small
   # Headline
   # Content
+  # Image
+    > Rounded Corners
+    > Drop Shadow
+    > Block Shadow
+    > Polaroid
+    > Rotate Till Hover
+  # Caption
 
 */
 
@@ -220,8 +227,6 @@ $section__color-d: rgb($color_accentTir);
 
     &--restrict-width {
       max-width: $structure_restricted_width;
-      /* margin-left: auto; */
-      /* margin-right: auto; */
     }
 
     &--narrow {
@@ -257,6 +262,157 @@ $section__color-d: rgb($color_accentTir);
       }
     }
 
+  }
+
+  /**************************************/
+  /*   # Image                         */
+  /************************************/
+
+  &__image {
+    /*display*/
+    display: inline-block;
+    /*position*/
+    position: relative;
+    top: 0;
+    right: 0;
+    /*structure*/
+    width: 420px;
+    /*spacing*/
+    margin: 0;
+
+    img {
+      /*structure*/
+      width: 100%;
+      /*spacing*/
+      padding: 0;
+      margin: 0;
+    }
+
+    /***********************
+    *  > Rounded Corners   *
+    ***********************/
+
+    &--rounded-corners {
+      /*borders*/
+      border-radius: 10px;
+      /*overflow*/
+      overflow: hidden;
+    }
+
+    /*******************
+    *  > Drop Shadow   *
+    *******************/
+
+    &--drop-shadow {
+      /*shadows*/
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, .3);
+    }
+
+    /********************
+    *  > Block Shadow   *
+    ********************/
+
+    &--block-shadow {
+      /*colors*/
+      border-color: rgba($color_offBlack, 1);
+      /*shadows*/
+      box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+
+      &::after {
+        /*content*/
+        content: "";
+        /*position*/
+        z-index: -1;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        /*structure*/
+        height: 100%;
+        width: 100%;
+        /*colors*/
+        background-color: rgba($color_offBlack, .8);
+        /*shadows*/
+        box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+      }
+    }
+
+    /****************
+    *  > Polaroid   *
+    ****************/
+
+    &--polaroid {
+      /*Suggestion: for a better size, make the photo approximately square.*/
+
+      /*structure*/
+      width: 420px;
+      /*borders*/
+      border-width: 30px;
+      border-style: solid;
+      border-bottom-width: 105px;
+      /*colors*/
+      border-color: rgb($color_offWhite);
+      /*shadows*/
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
+
+      img {
+        /*display*/
+        display: inline-block;
+        /*position*/
+        position: relative;
+        /*structure*/
+        width: 100%;
+      }
+    }
+
+    /*************************
+    *  > Rotate Till Hover   *
+    *************************/
+
+    &--rotate-till-hover {
+      /*transform*/
+      transform: rotate(12deg);
+      /*transition*/
+      transition-property: transform;
+      transition-duration: 800ms;
+
+      .has-no-touch &:hover{
+        transform: rotate(0);
+      }
+    }
+
+  }
+
+  /***************
+  *  > Caption   *
+  ***************/
+
+  &__caption {
+    /*position*/
+    z-index: 5;
+    position: absolute;
+    bottom: 0;
+    /*structure*/
+    width: 100%;
+    /*spacing*/
+    padding: 10px;
+    /*typography*/
+    text-align: center;
+    font-style: italic;
+    letter-spacing: 1.25px;
+    /*colors*/
+    background-color: rgba($color_offBlack, .2);
+    color: rgba($color_offWhite, .9);
+
+
+    .section__image--polaroid &{
+      /*position*/
+      top: 100%;
+      /*transform*/
+      transform: translateY(50%);
+      /*colors*/
+      background-color: transparent;
+      color: rgba($color_offBlack);
+    }
   }
 
 }

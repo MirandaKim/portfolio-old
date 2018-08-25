@@ -121,10 +121,13 @@ $color_textLink_inline_hover: $color_accentSec;
 
 $img_rootFile: ../images;
 $img_bkgdRoot: $img_rootFile/backgrounds;
+$img_sectionRoot: $img_rootFile/section;
 
 $img_keepMeHangin--small: url("$img_bkgdRoot/dejan-zakic-767355-unsplash--small.jpg");
 $img_keepMeHangin--large: url("$img_bkgdRoot/dejan-zakic-767355-unsplash--large.jpg");
 $img_keepMeHangin--xl: url("$img_bkgdRoot/dejan-zakic-767355-unsplash--xlarge.jpg");
+
+$img_harper: url("$img_sectionRoot/harper.jpg");
 
 $img_featured: $img_keepMeHangin--small;
 $img_featured--small: $img_keepMeHangin--small;
