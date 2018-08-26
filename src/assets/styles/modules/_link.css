@@ -18,6 +18,7 @@
   *************
 
   # Link
+    > Modifiers
   # Inline Link
   # Light
   # Displace Till Focus
@@ -37,7 +38,17 @@
      color: rgb($color_textLink_inline_hover);
      /*typography*/
     font-style: normal;
+
    }
+
+   /*****************
+   *  > Modifiers   *
+   *****************/
+
+   &--no-underline {
+     text-decoration: none;
+   }
+
 
    /**************************************/
    /*   # Inline Link                   */
