@@ -8,13 +8,13 @@ import waypoints from '../../../../node_modules/waypoints/lib/noframework.waypoi
 /************************************************/
 /*
 
-  - Use Waypoints to add a reveal class to elements when they are scrolled to.
-  - This reveal class is intented to trigger a css animation--this script does not provide the actual animation.
+  - Use Waypoints to remove a 'hidden' class from elements when they are scrolled to.
+  - Removing this 'hidden' class is intented to trigger a css animation--this script does not provide the actual animation.
+  - Refer to css file for animations: ~/src/assets/styles/modules/_reveal-on-scroll.
   - 'reveal-on-scroll': To apply functionality to an element, give the element the class 'reveal-on-scroll'
     (or another if set via Config).
+  - Elements with the reveal class will be given the class 'reveal-on-scroll--hidden' (or as set by config) on execute.
   - Public entry: RevealOnScroll.execute();
-  - Suggestion: The item should be hidden via css initially so there is no display delay before JS can add a hidden class.
-    BUT! Make sure the element is not hidden if the device does not have JS enabled (See Has No JS in App.js).
 
 
   *************
@@ -29,6 +29,7 @@ import waypoints from '../../../../node_modules/waypoints/lib/noframework.waypoi
     > Execute
 
   # Protected
+    > Hide Initially
     > Create Waypoints
 
   # Export
@@ -43,8 +44,8 @@ class RevealOnScroll {
 
     constructor(){
         this._itemToRevealSelector = '.reveal-on-scroll';
-        this._showClass = 'reveal-on-scoll--visible';
-        this._revealOffset = "90%";
+        this._hideClass = 'reveal-on-scroll--hidden';
+        this._revealOffset = "95%";
     }
 
   /**************************************/
@@ -58,15 +59,15 @@ class RevealOnScroll {
     this._itemToRevealSelector = selectorStr;
   }
 
-  get showClass(){
-    return this._showClass;
+  get hideClass(){
+    return this._hideClass;
   }
-  set showClass(classStr){
-    this._showClass = classStr;
+  set hideClass(classStr){
+    this._hideClass = classStr;
   }
 
   get revealOffset(){
-    return this._revealOffset()
+    return this._revealOffset;
   }
 
   set revealOffset (offset){
@@ -85,6 +86,7 @@ class RevealOnScroll {
       */
     execute(){
       let nodes = $(this._itemToRevealSelector);
+      this._hideInitially(nodes);
       if(nodes.length > 0){
         this._createWaypoints(nodes);
       }
@@ -94,6 +96,14 @@ class RevealOnScroll {
   /*   # Protected                     */
   /************************************/
 
+  /***********************
+  *   > Hide Initially   *
+  ***********************/
+
+  _hideInitially(nodes){
+    nodes.addClass(this._hideClass);
+  }
+
   /*************************
   *   > Create Waypoints   *
   *************************/
@@ -102,16 +112,20 @@ class RevealOnScroll {
   when user scrolls into offset range.
   */
     _createWaypoints(nodes){
-        let showClass = this._showClass;
+        let hideClass = this._hideClass;
         let revealOffset = this._revealOffset;
         nodes.each(function(index, node){
-            new Waypoint({
-                element: node,
-                offset: revealOffset,
-                handler: () => {
-                  node.classList.add(showClass);
+          let config = {
+              element: node,
+              offset: revealOffset,
+              handler: (direction) => {
+                if(direction == 'down') {
+                  console.log('down' + index);
+                  node.classList.remove(hideClass);
                 }
-            });
+              }
+          }
+            new Waypoint(config);
         });
     }
 

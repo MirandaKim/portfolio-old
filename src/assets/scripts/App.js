@@ -3,6 +3,7 @@ import $ from 'jquery';
 import CheckHasTouch from './modules/CheckHasTouch.class';
 import NavDisplay from './modules/NavDisplay.class';
 import SectionChange from './modules/SectionChange.class';
+import RevealOnScroll from './modules/RevealOnScroll.class';
 
 /****************************************************/
 /*                                                 */
@@ -32,8 +33,7 @@ import SectionChange from './modules/SectionChange.class';
   # Detect Touch
   # Navigation Display
   # Section Change
-  # Sticky On Scroll (disabled)
-  # Click To Copy
+  # Reveal On Scroll
 
 */
 
@@ -108,3 +108,14 @@ let sectionChange = new SectionChange(section_selector, section_activeLinkClassS
 // sectionChange.scrollUpOffset = "-5%";
 // sectionChange.scrollDownOffset="20%";
 sectionChange.setEvents();
+
+/**************************************/
+/*   # Reveal On Scroll              */
+/************************************/
+/*
+Give the elements with the class 'reveal-on-scroll' the class 'reveal-on-scroll--hidden' on execute,
+Then remove the hidden class when the element scrolled to.
+This should trigger a css animation to reveal the element to the user.
+ */
+let revealOnScroll = new RevealOnScroll();
+revealOnScroll.execute();

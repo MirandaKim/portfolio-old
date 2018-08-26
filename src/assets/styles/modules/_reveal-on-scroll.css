@@ -1,0 +1,55 @@
+
+/****************************************************/
+/*                                                 */
+/*   Reveal On Scroll CSS (_reveal-on-scroll.css) */
+/*                                               */
+/************************************************/
+/*
+
+  - CSS animations for revealing content when class names are changed by js.
+  - Give an element the class 'reveal-on-scroll' to enable the feature for that element.
+  - See the script file for more details: ~src/assets/scripts/modules/RevealOnScroll.class.js
+
+  *************
+  * Contents: *
+  *************
+
+  # Reveal On Scroll
+    > Hidden
+    > At Small
+
+*/
+
+/**************************************/
+/*   # Reveal On Scroll              */
+/************************************/
+
+.reveal-on-scroll {
+  transform: translateY(0);
+  opacity: 1;
+  transition-property: all;
+  transition-duration: 1500ms;
+
+  /***************
+  *   > Hidden   *
+  ***************/
+
+  &--hidden {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  /*****************
+  *   > At Small   *
+  *****************/
+
+  @mixin atSmall {
+    transform: translateY(0) scale(1);
+
+    &--hidden {
+      transform: translateY(70px) scale(1.05);
+    }
+  }
+
+
+}
