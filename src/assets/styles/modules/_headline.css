@@ -26,6 +26,11 @@
   /************
   *  > Size   *
   ************/
+
+  &--medium {
+    font-size: 2.5rem;
+  }
+
   &--large {
     font-size: 5rem;
   }
