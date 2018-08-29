@@ -39,10 +39,10 @@
 /************************************/
 
 $section__default-color: transparent;
-$section__color-a: rgb($color_offWhite);
-$section__color-b: rgb($color_accentMain);
-$section__color-c: rgb($color_accentSec);
-$section__color-d: rgb($color_accentTir);
+$section__color-a: rgb($color_a);
+$section__color-b: rgb($color_b);
+$section__color-c: rgb($color_c);
+$section__color-d: rgb($color_d);
 
 /**************************************/
 /*   # Section                       */

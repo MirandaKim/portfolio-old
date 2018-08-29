@@ -15,7 +15,7 @@
   /*borders*/
   border-radius: 50%;
   /*colors*/
-  background-color: rgb($color_neutralLight);
+  /* background-color: rgb($color_neutralLight); */
 
 }
 
@@ -48,6 +48,10 @@
 
   }
 
+  .has-no-touch &:hover::after {
+    background-color: rgba($color_offWhite, .2);
+  }
+
   &.active::before {
     /*position*/
     /* top: 50%; */
@@ -58,6 +62,7 @@
     opacity: 1;
     /*fancy*/
     box-shadow: 0 0 5px rgba(0, 0, 0, .9);
+
   }
 
 
