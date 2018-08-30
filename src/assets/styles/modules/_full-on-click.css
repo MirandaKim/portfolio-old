@@ -1,0 +1,30 @@
+.full-on-click {
+
+  cursor: pointer;
+
+  &--full {
+    /*position*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    /*structure*/
+    height: 100vh;
+    width: 100vw;
+
+    &:before {
+      content: "";
+      /*display*/
+      display: block;
+      /*position*/
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      /*structure*/
+      height: 100%;
+      width: 100%;
+      /*colors*/
+      background-color: rgba($color_offBlack, .5);
+    }
+  }
+}

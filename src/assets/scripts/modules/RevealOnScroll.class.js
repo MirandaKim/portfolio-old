@@ -15,6 +15,8 @@ import waypoints from '../../../../node_modules/waypoints/lib/noframework.waypoi
     (or another if set via Config).
   - Elements with the reveal class will be given the class 'reveal-on-scroll--hidden' (or as set by config) on execute.
   - Public entry: RevealOnScroll.execute();
+  - Known Issue: using css transform can interfear with sub elements that use fix position,
+    a possible fix is commented-out within this._createWaypoints()
 
 
   *************
@@ -122,6 +124,13 @@ class RevealOnScroll {
                 if(direction == 'down') {
                   console.log('down' + index);
                   node.classList.remove(hideClass);
+                  /*
+                  FIX: this is a temporariy fix for testing,
+                  TODO: integrate this fix properly.
+                  */
+                  // setTimeout(function(){
+                    // node.classList.remove('reveal-on-scroll');
+                  // }, 1500);
                 }
               }
           }

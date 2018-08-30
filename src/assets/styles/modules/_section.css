@@ -312,6 +312,8 @@ $section__color-d: rgb($color_d);
     margin: 0;
 
     img {
+      /*display*/
+      display: block;
       /*structure*/
       width: 100%;
       /*spacing*/

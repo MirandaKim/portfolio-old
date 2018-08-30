@@ -4,6 +4,7 @@ import CheckHasTouch from './modules/CheckHasTouch.class';
 import NavDisplay from './modules/NavDisplay.class';
 import SectionChange from './modules/SectionChange.class';
 import RevealOnScroll from './modules/RevealOnScroll.class';
+// import ClickImageToFull from './modules/ClickImageToFull.class';
 
 /****************************************************/
 /*                                                 */
@@ -119,3 +120,10 @@ This should trigger a css animation to reveal the element to the user.
  */
 let revealOnScroll = new RevealOnScroll();
 revealOnScroll.execute();
+
+/**************************************/
+/*   # Click Image To Full           */
+/************************************/
+/*Enlarge images (with the class 'full-on-click') to full screen when clicked.*/
+// let fullOnClick = new ClickImageToFull();
+// fullOnClick.setEvents();
