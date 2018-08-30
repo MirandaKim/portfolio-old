@@ -23,6 +23,7 @@
     > Full Width
     > No Text Wrap
     > Block Style
+  # Icon List
   # Definition List
     > Modifiers
 
@@ -52,6 +53,12 @@
   &--hang-right {
     /*position*/
     float: right;
+  }
+
+  &--items-hang-right {
+    li {
+      float: right;
+    }
   }
 
 
@@ -140,6 +147,14 @@
       }
     }
 
+  }
+
+  /**************************************/
+  /*   # Icon List                     */
+  /************************************/
+
+  &--icons {
+    list-style: none;
   }
 
   /**************************************/

@@ -1,0 +1,24 @@
+.icon {
+
+    margin: 20px;
+
+  &--tiny {
+    margin-left: 3px;
+    margin-right: 4px;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 1rem;
+    width: auto;
+  }
+
+  &--small {
+    height: 25px;
+  }
+
+  .has-no-touch &--scale-on-hover:hover {
+    transition-property: transform;
+    transition-duration: 500ms;
+    transform: scale(1.2);
+  }
+
+}
