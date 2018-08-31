@@ -9,3 +9,4 @@
 */
 
 require('../tmp/modernizr.js');
+require('lazysizes');

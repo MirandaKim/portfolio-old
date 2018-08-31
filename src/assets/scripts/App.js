@@ -4,6 +4,7 @@ import CheckHasTouch from './modules/CheckHasTouch.class';
 import NavDisplay from './modules/NavDisplay.class';
 import SectionChange from './modules/SectionChange.class';
 import RevealOnScroll from './modules/RevealOnScroll.class';
+import FixLazyWaypoints from './modules/FixLazyWaypoints.class';
 // import ClickImageToFull from './modules/ClickImageToFull.class';
 
 /****************************************************/
@@ -35,6 +36,7 @@ import RevealOnScroll from './modules/RevealOnScroll.class';
   # Navigation Display
   # Section Change
   # Reveal On Scroll
+  # Fix Lazy Waypoints
 
 */
 
@@ -120,6 +122,16 @@ This should trigger a css animation to reveal the element to the user.
  */
 let revealOnScroll = new RevealOnScroll();
 revealOnScroll.execute();
+
+/**************************************/
+/*   # Fix Lazy Waypoints            */
+/************************************/
+
+/*Fix conflict between Waypoints and LazySizes:
+Lazysizes keeps images from loading till nearly scrolled to--which can through off the waypoints.
+This resets the waypoints once images are loaded.*/
+let fixLazyWaypoints = new FixLazyWaypoints();
+fixLazyWaypoints.execute();
 
 /**************************************/
 /*   # Click Image To Full           */
