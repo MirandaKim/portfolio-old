@@ -16,7 +16,7 @@
   # Main Navigation
     > At Small
   # Link
-    > Hover (Small+ only)
+    > At Small
     > Active Link
   # Skip Main Content
 
@@ -71,20 +71,47 @@
     /*position*/
     position: relative;
     /*colors*/
-    /* color: rgb($color_accentMain); */
     color: rgb($color_offWhite);
-
+    /*transition*/
     transition-property: all;
     transition-duration: 500ms;
 
-    /***************************
-    *  > Hover (Small+ only)   *
-    ***************************/
+
+    /*******************
+    *  > Active Link   *
+    *******************/
+
+    &.active {
+      /*colors*/
+      color: rgb($color_offBlack);
+      background-color: rgb($color_accentMain);
+
+      @mixin atSmall {
+        /*typography*/
+        font-weight: 700;
+        letter-spacing: 1px;
+        /*colors*/
+        background-color: transparent;
+        /*shadows*/
+        text-shadow: 0 0 5px rgba(0, 0, 0, .8);
+
+      }
+    }
+    &--active-color-a.active {
+      color: rgb($color_a);
+    }
+
+    /****************
+    *  > At Small   *
+    ****************/
 
     @mixin atSmall {
+
+      &.active {
+        color: rgb($color_accentSec);
+      }
+
         .has-no-touch &:not(&--active):hover {
-          /*typography*/
-          /* font-weight: bold; */
           /*colors*/
           color: rgb($color_accentSec);
 
@@ -94,31 +121,11 @@
 
           }
         }
+        &--active-color-a--at-small.active {
+          color: rgb($color_a);
+        }
     }
 
-    /*******************
-    *  > Active Link   *
-    *******************/
-
-    &.active {
-      /*colors*/
-      color: rgb($color_accentSec);
-      background-color: rgb($color_accentMain);
-
-      @mixin atSmall {
-        /*typography*/
-        font-weight: 700;
-        letter-spacing: 1px;
-        /*colors*/
-        background-color: transparent;
-        /*fancy*/
-        text-shadow: 0 0 5px rgba(0, 0, 0, .8);
-
-      }
-    }
-    &--active-color-a.active {
-      color: rgb($color_a);
-    }
 
   }
 
