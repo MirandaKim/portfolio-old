@@ -52,7 +52,8 @@ If this was done by mistake, check ~/.trashed for your original files.*/
 @import './modules/_headline';
 @import './modules/_popout';
 @import './modules/_columns';
-@import './modules/_active-dot';
+/* @import './modules/_active-dot'; */
+@import './modules/_active-arrow';
 @import './modules/_image';
 @import './modules/_paragraph';
 @import './modules/_icon';

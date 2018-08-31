@@ -1,0 +1,83 @@
+
+/****************************************************/
+/*                                                 */
+/*   Active Arrow CSS (_active-arrow.css)         */
+/*                                               */
+/************************************************/
+/*
+
+  Give active link (or hover) an arrow
+
+  *************
+  * Contents: *
+  *************
+
+  # Active Arrow
+    > Initial
+    > Active
+    > On Hover
+
+*/
+
+/**************************************/
+/*   # Active Arrow                  */
+/************************************/
+
+.active-arrow {
+
+  /***************
+  *  > Initial   *
+  ***************/
+
+  &::before {
+    /*variables*/
+    $border-size: 6px;
+    /*content*/
+    content: "";
+    /*display*/
+    display: none;
+    /*position*/
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    /*structure*/
+    width: 0;
+    height: 0;
+    /*transform*/
+    transform: translateY(-50%) translateX(-100%);
+    /*borders*/
+    border-style: solid;
+    border-color: rgb($color_offWhite);
+    border-left-width: $border-size;
+    border-right-width: 0;
+    border-top-width: $border-size;
+    border-top-color: transparent;
+    border-bottom-width: $border-size;
+    border-bottom-color: transparent;
+  }
+
+  /**************
+  *  > Active   *
+  **************/
+
+  &.active::before {
+    /*display*/
+    display: block;
+    /*colors*/
+    opacity: 1;
+
+  }
+
+  /****************
+  *  > On Hover   *
+  ****************/
+
+  .has-no-touch &:hover::before {
+    /*display*/
+    display: block;
+    /*colors*/
+    opacity: .5;
+  }
+
+}

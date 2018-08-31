@@ -114,12 +114,6 @@
         .has-no-touch &:not(&--active):hover {
           /*colors*/
           color: rgb($color_accentSec);
-
-          &::before {
-            /*display*/
-            display: inline-block;
-
-          }
         }
         &--active-color-a--at-small.active {
           color: rgb($color_a);
