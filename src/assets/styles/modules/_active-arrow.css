@@ -14,6 +14,7 @@
 
   # Active Arrow
     > Initial
+    > Colors
     > Active
     > On Hover
 
@@ -56,6 +57,29 @@
     border-right-color: rgb($color_accentTir);
     border-top-color: transparent;
     border-bottom-color: transparent;
+  }
+
+  /**************
+  *  > Colors   *
+  **************/
+
+  &--light::before {
+    /*colors*/
+    border-left-color: rgb($color_offWhite);
+    border-right-color: rgb($color_offWhite);
+  }
+
+
+  &--color-a::before {
+    /*colors*/
+    border-left-color: rgb($color_a);
+    border-right-color: rgb($color_a);
+  }
+
+  &--transparent::before {
+    /*colors*/
+    border-left-color: transparent;
+    border-right-color: transparent;
   }
 
   /**************
