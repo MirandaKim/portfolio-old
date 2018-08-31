@@ -80,14 +80,16 @@ $color_green_light_01: 215, 236, 159;
 $color_green_med_01: 141, 196, 21;
 
 /*Teals*/
-$color_teal_light_01: 146, 252, 220;
+$color_teal_light_01: 198, 255, 234;
 $color_teal_light_02: 123, 213, 187;
+$color_teal_light_03: 177, 255, 223;
 $color_teal_med_01: 116, 200, 176;
 $color_teal_med_02: 105, 181, 159;
 $color_teal_dark_01: 42, 72, 64;
 
 /*Yellows*/
 
+$color_yellow_light_01: 255, 255, 162;
 $color_yellow_med_01: 255, 255, 131;
 
 /**************************
@@ -109,13 +111,8 @@ $color_c: $color_teal_med_02;
 $color_d: $color_teal_dark_01;
 
 /*ACCENT*/
-/* $color_accentMain: $color_blue_med_01; */
-/* $color_accentMain: $color_orange_med_01; */
-/* $color_accentMain: $color_green_light_01;
-$color_accentSec: $color_green_med_01;
-$color_accentTir: $color_blue_light_01; */
 $color_accentMain: $color_teal_light_01;
-$color_accentSec: $color_yellow_med_01;
+$color_accentSec: $color_yellow_light_01;
 $color_accentTir: $color_orange_med_01;
 
 
@@ -134,8 +131,8 @@ $color_textHeaderMain: $color_neutralMed;
 $color_textHeaderSec: $color_neutralDark;
 $color_textHeaderTert: $color_neutralDark;
 $color_textBody: $color_grey_dark_02;
+$color_textLink_inline: $color_offWhite;
 $color_textLink_inline_hover: $color_accentSec;
-$color_textLink_inline: $color_accentMain;
 
 /*Backgrounds*/
 $color_background_01: $color_blue_med_01;
@@ -159,7 +156,6 @@ $img_keepMeHangin--small: url("$img_bkgdRoot/dejan-zakic-767355-unsplash--small.
 $img_keepMeHangin--large: url("$img_bkgdRoot/dejan-zakic-767355-unsplash--large.jpg");
 $img_keepMeHangin--xl: url("$img_bkgdRoot/dejan-zakic-767355-unsplash--xlarge.jpg");
 
-$img_harper: url("$img_sectionRoot/harper.jpg");
 
 $img_featured: $img_keepMeHangin--small;
 $img_featured--small: $img_keepMeHangin--small;

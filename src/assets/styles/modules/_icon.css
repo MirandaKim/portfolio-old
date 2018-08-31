@@ -1,19 +1,59 @@
+/****************************************************/
+/*                                                 */
+/*   Icon CSS (_icon.css)                         */
+/*                                               */
+/************************************************/
+/*
+
+  - Style icons
+
+  *************
+  * Contents: *
+  *************
+
+  # Icon
+    > Inline
+    > Small
+  # On Hover
+
+*/
+
+/**************************************/
+/*   # Icon                          */
+/************************************/
+
+
 .icon {
 
-    margin: 20px;
+  margin: 20px;
 
-  &--tiny {
-    margin-left: 3px;
-    margin-right: 4px;
+  /**************
+  *  > Inline   *
+  **************/
+
+  &--inline {
+    display: inline-block;
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
     margin-top: auto;
     margin-bottom: auto;
-    height: 1rem;
+    transform: translateY(.2rem);
+    height: 1.2rem;
     width: auto;
   }
+
+  /*************
+  *  > Small   *
+  *************/
 
   &--small {
     height: 25px;
   }
+
+  /**************************************/
+  /*   # On Hover                      */
+  /************************************/
 
   .has-no-touch &--scale-on-hover:hover {
     transition-property: transform;
