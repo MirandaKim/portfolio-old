@@ -36,10 +36,8 @@ class ClickImageToFull {
   /************************************/
 
   constructor(selector = ".full-on-click") {
-    console.log('Fill constructor');
     this._applySelector = selector;
     this._fullClass = "full-on-click--full";
-    console.log($(selector));
   }
 
   /**************************************/

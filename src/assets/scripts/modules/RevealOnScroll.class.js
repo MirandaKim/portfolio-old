@@ -122,7 +122,6 @@ class RevealOnScroll {
               offset: revealOffset,
               handler: (direction) => {
                 if(direction == 'down') {
-                  console.log('down' + index);
                   node.classList.remove(hideClass);
                   /*
                   FIX: this is a temporariy fix for testing,
