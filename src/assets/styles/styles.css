@@ -56,6 +56,7 @@ If this was done by mistake, check ~/.trashed for your original files.*/
 @import './modules/_image';
 @import './modules/_paragraph';
 @import './modules/_icon';
+@import './modules/_button';
 @import './modules/_reveal-on-scroll';
 /* @import './modules/_full-on-click'; */
 

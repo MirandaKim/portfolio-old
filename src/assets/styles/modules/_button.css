@@ -1,0 +1,63 @@
+/****************************************************/
+/*                                                 */
+/*   Button CSS (_button.css)                     */
+/*                                               */
+/************************************************/
+/*
+
+  - Style buttons
+
+  *************
+  * Contents: *
+  *************
+
+  # Button
+  # On Hover
+
+*/
+
+/**************************************/
+/*   # Button                        */
+/************************************/
+
+.button {
+  /*display*/
+  display: inline-block;
+  /*position*/
+  position: relative;
+  /*structure*/
+  width: auto;
+  /*spacing*/
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  /*borders*/
+  border-radius: 4px;
+  /*typography*/
+  letter-spacing: 1px;
+  text-decoration: none;
+  /*colors*/
+  background-color: rgb($color_accentMain);
+  color: rgb($color_accentTir);
+  /*transition*/
+  transition-property: all;
+  transition-duration: 100ms;
+
+  /**************************************/
+  /*   # On Hover                      */
+  /************************************/
+
+  .has-no-touch &:hover{
+    /*colors*/
+    background-color: rgb($color_accentSec);
+    color: rgb($color_accentTir);
+    /*transform*/
+    transform: scale(1.05);
+    /*shadows*/
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
+  }
+
+}
