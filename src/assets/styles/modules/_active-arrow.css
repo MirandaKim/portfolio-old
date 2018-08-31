@@ -48,12 +48,13 @@
     transform: translateY(-50%) translateX(-100%);
     /*borders*/
     border-style: solid;
-    border-color: rgb($color_offWhite);
     border-left-width: $border-size;
     border-right-width: 0;
     border-top-width: $border-size;
-    border-top-color: transparent;
     border-bottom-width: $border-size;
+    border-left-color: rgb($color_accentTir);
+    border-right-color: rgb($color_accentTir);
+    border-top-color: transparent;
     border-bottom-color: transparent;
   }
 
@@ -78,6 +79,8 @@
     display: block;
     /*colors*/
     opacity: .5;
+    border-left-color: rgb($color_offWhite);
+    border-right-color: rgb($color_offWhite);
   }
 
 }

@@ -83,7 +83,7 @@
 
     &.active {
       /*colors*/
-      color: rgb($color_offBlack);
+      color: rgb($color_accentTir);
       background-color: rgb($color_accentMain);
 
       @mixin atSmall {
@@ -92,8 +92,6 @@
         letter-spacing: 1px;
         /*colors*/
         background-color: transparent;
-        /*shadows*/
-        text-shadow: 0 0 5px rgba(0, 0, 0, .8);
 
       }
     }
@@ -108,7 +106,7 @@
     @mixin atSmall {
 
       &.active {
-        color: rgb($color_accentSec);
+        /* color: rgb($color_accentSec); */
       }
 
         .has-no-touch &:not(&--active):hover {
