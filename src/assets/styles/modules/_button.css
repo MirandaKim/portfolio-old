@@ -32,8 +32,8 @@
   padding-right: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   /*borders*/
   border-radius: 4px;
   /*typography*/
@@ -45,6 +45,20 @@
   /*transition*/
   transition-property: all;
   transition-duration: 100ms;
+
+  /****************
+  *  > At Small   *
+  ****************/
+
+  @mixin atSmall {
+
+    &--side-margins-at-small {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+  }
+
 
   /**************************************/
   /*   # On Hover                      */
