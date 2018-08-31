@@ -55,6 +55,7 @@ $section__color-d: rgb($color_d);
   position: relative;
   /*structure*/
   height: auto;
+  min-height: 60vh;
   width: 100%;
   /*spacing*/
   margin-left: auto;
