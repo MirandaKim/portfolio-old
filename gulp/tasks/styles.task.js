@@ -42,7 +42,7 @@ const advancedVars = require('postcss-advanced-variables');
 var srcStyles = './src/assets/styles/styles.css'; // style source files
 
 var destDev = './tmp/assets/styles'; // development destination for processed style files
-var destProd = './dist/assets'; // production destination for processed style files
+var destProd = './dist/assets/styles'; // production destination for processed style files
 
 let basePlugins = [ // include plugins common to all process environments
   cssImport,
