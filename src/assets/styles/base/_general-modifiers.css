@@ -19,6 +19,7 @@
     > Text
   # Typography
     > Alignment
+  # Animations
 
 */
 
@@ -125,4 +126,19 @@
 .center-align {
   /*typography*/
   text-align: center;
+}
+
+/**************************************/
+/*   # Animations                    */
+/************************************/
+
+.fade-in-on-load {
+  /*colors*/
+  opacity: 0;
+  /*animation*/
+  animation-name: fadeIn;
+  animation-duration: 2000ms;
+  animation-fill-mode: forwards;
+  animation-delay: 500ms;
+  animation-timing-function: linear;
 }

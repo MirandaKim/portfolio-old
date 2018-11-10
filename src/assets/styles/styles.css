@@ -38,6 +38,7 @@ If this was done by mistake, check ~/.trashed for your original files.*/
 @import './base/_variables';
 @import './base/_mixins';
 @import './base/_globals';
+@import './base/_animations';
 @import './base/_general-modifiers';
 
 /**************************************/
