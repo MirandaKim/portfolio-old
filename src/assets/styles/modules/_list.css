@@ -124,6 +124,9 @@
     *******************/
 
     &--link-block-style {
+
+      margin-left: 0;
+
       li {
         /*display*/
         display: block;
@@ -142,8 +145,8 @@
         /*spacing*/
         padding-left: 15px;
         padding-right: 20px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
       }
     }
 
