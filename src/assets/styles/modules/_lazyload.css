@@ -1,0 +1,10 @@
+.blur-up {
+    filter: blur(8px);
+    transition-property: all;
+    transition-duration: 500ms;
+
+    &.lazyloaded {
+      filter: blur(0);
+    }
+
+}

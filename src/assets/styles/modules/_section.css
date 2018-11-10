@@ -308,6 +308,7 @@ $section__color-d: rgb($color_d);
     top: 0;
     right: 0;
     /*structure*/
+    width: 100%;
     max-width: 420px;
     /*spacing*/
     margin: 0;

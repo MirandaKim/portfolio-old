@@ -71,3 +71,8 @@ If this was done by mistake, check ~/.trashed for your original files.*/
 @import './modules/_logo';
 @import './modules/_section';
 @import './modules/_site-footer';
+
+/***********************
+*  > Module Elements   *
+***********************/
+@import './modules/_lazyload';

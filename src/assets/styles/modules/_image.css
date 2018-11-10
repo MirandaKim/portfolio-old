@@ -47,4 +47,8 @@
 
   }
 
+  &--fit-to-width {
+    width: 100%;
+  }
+
 }
