@@ -47,6 +47,9 @@
   # Images
     > Parallax
 
+  # Links
+    > Inline
+
 */
 
 /**************************************/
@@ -210,4 +213,54 @@ NOTE: the element and container must both have a position for this to work!
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+/**************************************/
+/*   # Links                         */
+/************************************/
+
+/***************
+*   > Inline   *
+***************/
+
+@define-mixin inlineLink(){
+  /*display*/
+  display: inline-block;
+  /*position*/
+  position: relative;
+  /*typography*/
+  text-decoration: none;
+  /*colors*/
+  color: $color_textLink_inline;
+  /*transitions*/
+  transition-property: all;
+  transition-duration: 100ms;
+
+  &::after {
+    content: "";
+    /*display*/
+    display: block;
+    /*position*/
+    position: absolute;
+    bottom: 1px;
+    /*structure*/
+    width: 100%;
+    /*borders*/
+    border-top-width: 2px;
+    border-top-style: dashed;
+    /*colors*/
+    border-color: $color_neutralLight;
+    /*transitions*/
+    transition-property: all;
+    transition-duration: 100ms;
+  }
+
+  &:hover {
+    /*colors*/
+    color: $color_textLink_inline_hover;
+  }
+  &:hover::after {
+    /*colors*/
+    border-color: $color_textLink_inline_hover;
+  }
 }

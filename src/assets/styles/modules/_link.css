@@ -56,15 +56,17 @@
 
    &--inline {
      /*position*/
-     z-index: 0;
-     position: relative;
+     /* z-index: 0; */
+     /* position: relative; */
      /*typography*/
-     text-align: center;
-     white-space: nowrap;
+     /* text-align: center; */
+     /* white-space: nowrap; */
      /*hover*/
      .has-no-touch &:hover {
-       font-weight: bold;
+       /* font-weight: bold; */
      }
+
+     @mixin inlineLink();
    }
 
    /**************************************/
