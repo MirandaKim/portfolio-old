@@ -57,8 +57,9 @@
 
   .has-no-touch &--scale-on-hover:hover {
     transition-property: transform;
-    transition-duration: 500ms;
-    transform: scale(1.2);
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+    transform: scale(1.1);
   }
 
 }
