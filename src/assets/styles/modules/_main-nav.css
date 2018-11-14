@@ -67,7 +67,6 @@
   }
 
   &__link {
-
     /*position*/
     position: relative;
     /*colors*/
@@ -75,6 +74,11 @@
     /*transition*/
     transition-property: all;
     transition-duration: 500ms;
+
+    @mixin atSmall {
+      /*spacing*/
+      margin-bottom: 20px;
+    }
 
 
     /*******************
@@ -97,6 +101,38 @@
     }
     &--active-color-a.active {
       color: rgb($color_a);
+      box-shadow: unset;
+      background-color: transparent;
+    }
+
+    &--active-bkgrd-a.active {
+      /*borders*/
+      border-radius: 5px;
+      /*colors*/
+      background-color: rgb($color_a);
+    }
+    &--active-bkgrd-b.active {
+      /*borders*/
+      border-radius: 5px;
+      /*colors*/
+      background-color: rgb($color_b);
+    }
+    &--active-bkgrd-c.active {
+      /*borders*/
+      border-radius: 5px;
+      /*colors*/
+      background-color: rgb($color_c);
+    }
+    &--active-bkgrd-d.active {
+      /*borders*/
+      border-radius: 5px;
+      /*colors*/
+      background-color: rgb($color_d);
+    }
+
+    &--active-shadow.active {
+      /*shadows*/
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, .3);
     }
 
     /****************
