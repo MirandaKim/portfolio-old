@@ -269,7 +269,7 @@ $carousel__slide-speed: 500ms;
   &__play {
     /*position*/
     position: relative;
-    left: -2px;
+    left: -4px;
     top: 1px;
     /*structure*/
     height: 0;
