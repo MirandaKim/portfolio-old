@@ -119,13 +119,39 @@
               <li><b>Yarn Dyeing:</b> wool, vinegar, color, and heat. That's all you need!</li>
               <li><b>3D Art Rendering:</b> I'm still just a beginner, but I can already use Blender to render digital donuts and coffee mugs!</li>
             </ul>
-            <figure class="section__image section__image--rounded-corners section__image--drop-shadow">
+            <!-- <figure class="section__image section__image--rounded-corners section__image--drop-shadow">
               <img class="image lazyload blur-up image image--fit-to-width" src="assets/images/photos/fox-on-book-20px.jpg"
               data-srcset="assets/images/photos/fox-on-book-200px.jpg 200w,
               assets/images/photos/fox-on-book-400px.jpg 400w,
               assets/images/photos/fox-on-book-800px.jpg 800w" alt="">
             <figcaption class="section__caption">Acorn, one of my lovey designs.</figcaption>
-          </figure>
+          </figure> -->
+          <div class="carousel carousel--smaller-for-tiny carousel--active" id="carousel-skills">
+            <div class="carousel__display">
+              <div class="carousel__image-wrapper carousel__image-wrapper--active">
+                <img src="assets/images/photos/fox-on-book-400px.jpg" class="carousel__image carousel__image--fit-width">
+              </div>
+              <!-- the following image is for testing and should be removed when actual images are inserted -->
+              <div class="carousel__image-wrapper" style="transform: rotate(90deg)">
+                <img src="assets/images/photos/fox-on-book-400px.jpg" class="carousel__image carousel__image--fit-width">
+              </div>
+            </div>
+            <div class="carousel__controls">
+              <button class="carousel__arrow carousel__arrow--left carousel__move-previous"></button>
+              <button class="carousel__arrow carousel__arrow--right carousel__move-next"></button>
+              <div class="carousel__bottom-controls carousel__control-wrapper--horizontal">
+                <div class="carousel__jump-controls">
+                  <div class="carousel__jump carousel__jump--current"></div>
+                  <div class="carousel__jump"></div>
+                  <div class="carousel__jump"></div>
+                </div>
+                <button class="carousel__play-toggle">
+                  <div class="carousel__play"></div>
+                  <div class="carousel__pause"></div>
+                </button>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </div>

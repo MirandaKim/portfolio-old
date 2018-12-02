@@ -49,6 +49,7 @@
 
   # Links
     > Inline
+    > Override Button
 
 */
 
@@ -263,4 +264,18 @@ NOTE: the element and container must both have a position for this to work!
     /*colors*/
     border-color: $color_textLink_inline_hover;
   }
+}
+
+/************************
+*   > Override Button   *
+************************/
+
+@define-mixin overrideButton(){
+  /*borders*/
+  border-style: none;
+  border-radius: 0;
+  /*spacing*/
+  padding: 0;
+  /*colors*/
+  background-color: transparent;
 }
