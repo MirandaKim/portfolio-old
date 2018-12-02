@@ -20,7 +20,7 @@
   # Carousel
     > Modifiers
   # Display
-  # Image Wrapper
+  # Item Wrapper
   # Image
     > Modifiers
   # Controls
@@ -91,10 +91,10 @@ $carousel__slide-speed: 500ms;
   }
 
   /**************************************/
-  /*   # Image Wrapper                 */
+  /*   # Item Wrapper                 */
   /************************************/
 
-  &__image-wrapper { /*HIDDEN INITIALLY UNTIL GIVEN ACTIVE CLASS BELOW*/
+  &__item-wrapper { /*HIDDEN INITIALLY UNTIL GIVEN ACTIVE CLASS BELOW*/
     /*display*/
     display: block;
     /*position*/
@@ -114,7 +114,7 @@ $carousel__slide-speed: 500ms;
     transition-duration: $carousel__slide-speed;
   }
 
-  &__image-wrapper--active { /*USE THIS CLASS TO DISPLAY ONE IMAGE AT A TIME IN SCRIPT*/
+  &__item-wrapper--active { /*USE THIS CLASS TO DISPLAY ONE IMAGE AT A TIME IN SCRIPT*/
     opacity: 1;
     z-index: 1;
   }
