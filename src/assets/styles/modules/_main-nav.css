@@ -70,7 +70,7 @@
     /*position*/
     position: relative;
     /*colors*/
-    color: rgb($color_offWhite);
+    color: rgba($color_offWhite, .7);
     /*transition*/
     transition-property: all;
     transition-duration: 500ms;
@@ -78,6 +78,29 @@
     @mixin atSmall {
       /*spacing*/
       margin-bottom: 20px;
+      /*shadows*/
+      text-shadow: 0 0 5px rgba(0, 0, 0, .3);
+
+      &::after {
+        content: "";
+        /*display*/
+        display: none;
+        /*position*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        /*structure*/
+        height: 100%;
+        width: 100%;
+        /*borders*/
+        border-bottom-style: dashed;
+        border-width: 2px;
+        /*colors*/
+        border-color: rgba($color_offWhite, 0);
+        /*transitions*/
+        transition-property: all;
+        transition-duration: 500ms;
+      }
     }
 
 
@@ -92,10 +115,20 @@
 
       @mixin atSmall {
         /*typography*/
-        font-weight: 700;
-        letter-spacing: 1px;
+        /* font-weight: 700; */
+        letter-spacing: 1.5px;
         /*colors*/
+        color: rgba($color_offWhite, 1);
         background-color: transparent;
+        /*shadows*/
+        text-shadow: 0 0 10px rgba(0, 0, 0, .2);
+
+        &::after {
+          /*structure*/
+          width: 100%;
+          /*colors*/
+          border-color: rgba($color_offWhite, .3);
+        }
 
       }
     }
