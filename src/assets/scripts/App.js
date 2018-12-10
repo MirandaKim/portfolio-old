@@ -5,6 +5,7 @@ import NavDisplay from './modules/NavDisplay.class';
 import SectionChange from './modules/SectionChange.class';
 import RevealOnScroll from './modules/RevealOnScroll.class';
 import FixLazyWaypoints from './modules/FixLazyWaypoints.class';
+import Carousel from './modules/Carousel.class';
 // import ClickImageToFull from './modules/ClickImageToFull.class';
 
 /****************************************************/
@@ -37,6 +38,7 @@ import FixLazyWaypoints from './modules/FixLazyWaypoints.class';
   # Section Change
   # Reveal On Scroll
   # Fix Lazy Waypoints
+  # Carousel
 
 */
 
@@ -139,3 +141,10 @@ fixLazyWaypoints.execute();
 /*Enlarge images (with the class 'full-on-click') to full screen when clicked.*/
 // let fullOnClick = new ClickImageToFull();
 // fullOnClick.setEvents();
+
+/**************************************/
+/*   # Carousel                      */
+/************************************/
+
+let skillCarousel = new Carousel();
+skillCarousel.enable();
