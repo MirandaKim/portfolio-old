@@ -1,18 +1,19 @@
 
 /****************************************************/
 /*                                                 */
-/*   Site Header CSS (_site-header.css)           */
+/*   Carousel CSS (_carousel.css)              */
 /*                                               */
 /************************************************/
 /*
 
-  - Style for the site header and it's elements
-  - Some elements within the header may be considered separate blocks
-    and will have a separate css file (e.g. logo and main-nav).
-  - The css is handled by PostCSS plugins (see ~/gulp/tasks/styles.task.js)
-  - These styles account for screen size and JS availablity (has-no-js).
+  - Styles for a carousel
+  - This file constains the styles, includeing the animations/transitions for the items
+    in the carousel.
+  - The carousel should be controled via a script that changes class names of the
+    outer carousel wrapper to trigger style transitions/animations.
   - An item is a slide (e.g. single image) of the carousel.
-    The carousel should have multiple items, which it loops through
+    The carousel should have multiple items, which it loops through.
+  - Items cycle by animating their opacity and z-index.
 
   *************
   * Contents: *
@@ -42,7 +43,7 @@ $carousel__control-color: rgba($color_offWhite, .5);
 $carousel__control-color--hover: rgba($color_offWhite, 1);
 $carousel__control-color--active: rgba($color_accentTir, 1);
 
-$carousel__slide-speed: 500ms;
+$carousel__slide-speed: 1000ms;
 
 /**************************************/
 /*   # Carousel                      */
@@ -241,14 +242,14 @@ $carousel__slide-speed: 500ms;
     transition-property: all;
     transition-duration: 500ms;
 
-    .has-no-touch &:not(&--current):hover {
+    .has-no-touch &:not(&--active):hover {
       /*colors*/
       background-color: $carousel__control-color--hover;
     }
 
   }
 
-  &__jump--current {
+  &__jump--active {
     /*colors*/
     background-color: $carousel__control-color--active;
   }

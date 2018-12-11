@@ -26,10 +26,14 @@ import $ from 'jquery';
       > Enable
       > Play
       > Pause
+      > Next
+      > Previous
+      > Jump
   # Protected
       > Initialize Carousel
       > Generate Components
-      > Set Events
+      > Set Control Events
+      > Change Active
   # Export
 
 */
@@ -45,6 +49,11 @@ class Carousel {
     *   > Properties   *
     *******************/
 
+    this.carousel;
+    this.items = {};
+    this.itemCount = 0;
+    this.currentItem = 0;
+
     /*carousel element classes*/
     this.elementClasses = {};
     this.elementClasses.jump = 'carousel__jump';
@@ -52,6 +61,10 @@ class Carousel {
     /*carousel element selectors*/
     this.elementSelectors = {};
     this.elementSelectors.item = '.carousel__item';
+    this.elementSelectors.jumpWrapper = '.carousel__jump-controls';
+
+    /*data attributes*/
+    this.itemIndexAttr = 'data-carousel-index';
 
     /*carousel control selectors*/
     this.controlSelectors = {};
@@ -64,7 +77,8 @@ class Carousel {
     /*carousel states*/
     this.states = {};
     this.states.isPlayingClass = "carousel--is-playing";
-
+    this.states.isCurrentItemClass = "carousel__item--active";
+    this.states.isCurrentJumpClass = "carousel__jump--active";
 
   }
 
@@ -77,10 +91,19 @@ class Carousel {
    ***************/
 
   enable(carouselSelector, beginPlay = true){
+    /*get carousel*/
     this.carousel = $(carouselSelector);
-    this.initializeCarousel();
-    if(beginPlay){
-      this.play();
+    if(this.carousel){
+      /*prep carousel: generate elements and set events*/
+      this.initializeCarousel();
+      /*set the initial active item*/
+      this.changeActive(this.currentItem);
+      /*begin carousel play if allowed initially*/
+      if(beginPlay){
+        this.play();
+      }
+    }else{
+      console.log(`Debug: carousel ${carouselSelector} not found.`)
     }
   }
 
@@ -107,7 +130,9 @@ class Carousel {
   *************/
 
   next(){
-    console.log('carousel: next slide');
+    let targetItem = this.currentItem + 1;
+    let nextItem =  targetItem >= this.itemCount ? 0 : targetItem;
+    this.changeActive(nextItem);
   }
 
   /*****************
@@ -115,7 +140,9 @@ class Carousel {
   *****************/
 
   previous(){
-    console.log('carousel: previous slide');
+    let targetItem = this.currentItem - 1;
+    let previousItem =  targetItem < 0 ? this.itemCount - 1 : targetItem;
+    this.changeActive(previousItem);
   }
 
   /*************
@@ -123,7 +150,7 @@ class Carousel {
   *************/
 
   jump(itemIndex = 0){
-    console.log('carousel: jump to item' + itemIndex);
+    this.changeActive(itemIndex);
   }
 
   /**************************************/
@@ -134,13 +161,16 @@ class Carousel {
   *   > Initialize Carousel   *
   ****************************/
   initializeCarousel(){
-
-    this.generateComponents();
-    this.setPlayEvent();
-    this.setPauseEvent();
-    this.setNextEvent();
-    this.setPreviousEvent();
-    this.setJumpEvents();
+    this.items = this.carousel.find(this.elementSelectors.item)
+    this.itemCount = this.items.length;
+    if(this.itemCount > 0){
+      this.generateComponents();
+      this.setEvent_play();
+      this.setEvent_pause();
+      this.setEvent_next();
+      this.setEvent_previous();
+      this.setEvent_jump();
+    }
   }
 
   /****************************
@@ -148,31 +178,83 @@ class Carousel {
   ****************************/
 
   generateComponents (){
-
+    /*jump control wrapper*/
+    let jumpWrapper = this.carousel.find(this.elementSelectors.jumpWrapper);
+    /*for each item:*/
+    $(this.items).each((i, v) => {
+      console.log(i);
+      /*give item index attribute*/
+      $(v).attr(this.itemIndexAttr, i);
+      /*give create jump control for item*/
+      let jumpControl = `<div class="${this.elementClasses.jump}" ${this.itemIndexAttr}="${i}"></div>`;
+      $(jumpWrapper).append(jumpControl);
+    });
+    this.jumps = this.carousel.find(this.controlSelectors.jump);
   }
 
-  /*******************
-  *   > Set Events   *
-  *******************/
+  /***************************
+  *   > Set Control Events   *
+  ***************************/
 
-  setPlayEvent(){
+  setEvent_play(){
     let playButton = this.carousel.find(this.controlSelectors.play);
     $(playButton).click(()=>{
-      console.log('click event: play');
       this.play();
     });
   }
 
-  setPauseEvent(){
+  setEvent_pause(){
     let pauseButton = this.carousel.find(this.controlSelectors.pause);
     $(pauseButton).click(()=>{
-      console.log('click event: pause');
       this.pause();
     });
   }
 
-  setLoopTimeEvent(){
+  setEvent_next(){
+    $(this.controlSelectors.next).click(()=>{
+      this.next();
+    });
+  }
 
+  setEvent_previous(){
+    $(this.controlSelectors.previous).click(()=>{
+      this.previous();
+    });
+  }
+
+  setEvent_jump(){
+    let jumps = this.carousel.find(this.controlSelectors.jump);
+    $(jumps).click((e)=>{
+      let indexStr = $(e.target).attr(this.itemIndexAttr);
+      let indexInt = parseInt(indexStr);
+      this.jump(indexInt);
+    });
+  }
+
+  setEvent_loop(){
+
+  }
+
+  /**********************
+  *   > Change Active   *
+  **********************/
+
+  changeActive(index){
+    /*remove active class from carousel items*/
+    $(this.items).removeClass(this.states.isCurrentItemClass);
+    $(this.jumps).removeClass(this.states.isCurrentJumpClass);
+    /*target new item*/
+    let itemSelector = `${this.elementSelectors.item}[${this.itemIndexAttr}=${index}]`;
+    let newItem = this.carousel.find(itemSelector);
+    /*target new active jump control*/
+    let jumpSelector = `${this.controlSelectors.jump}[${this.itemIndexAttr}=${index}]`;
+    console.log(jumpSelector);
+    let newJump = this.carousel.find(jumpSelector);
+    /*add active class to current carousel elements*/
+    $(newItem).addClass(this.states.isCurrentItemClass);
+    $(jumpSelector).addClass(this.states.isCurrentJumpClass);
+    /*set new index*/
+    this.currentItem = index;
   }
 
 }
