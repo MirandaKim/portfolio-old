@@ -11,6 +11,8 @@
     and will have a separate css file (e.g. logo and main-nav).
   - The css is handled by PostCSS plugins (see ~/gulp/tasks/styles.task.js)
   - These styles account for screen size and JS availablity (has-no-js).
+  - An item is a slide (e.g. single image) of the carousel.
+    The carousel should have multiple items, which it loops through
 
   *************
   * Contents: *
@@ -20,7 +22,7 @@
   # Carousel
     > Modifiers
   # Display
-  # Item Wrapper
+  # Item
   # Image
     > Modifiers
   # Controls
@@ -91,10 +93,12 @@ $carousel__slide-speed: 500ms;
   }
 
   /**************************************/
-  /*   # Item Wrapper                 */
+  /*   # Item                          */
   /************************************/
+  /*An item is a slide (e.g. single image) of the carousel.
+  The carousel should have multiple items, which it loops through.*/
 
-  &__item-wrapper { /*HIDDEN INITIALLY UNTIL GIVEN ACTIVE CLASS BELOW*/
+  &__item { /*HIDDEN INITIALLY UNTIL GIVEN ACTIVE CLASS BELOW*/
     /*display*/
     display: block;
     /*position*/
@@ -114,7 +118,7 @@ $carousel__slide-speed: 500ms;
     transition-duration: $carousel__slide-speed;
   }
 
-  &__item-wrapper--active { /*USE THIS CLASS TO DISPLAY ONE IMAGE AT A TIME IN SCRIPT*/
+  &__item--active { /*USE THIS CLASS TO DISPLAY ONE IMAGE AT A TIME IN SCRIPT*/
     opacity: 1;
     z-index: 1;
   }
@@ -289,7 +293,7 @@ $carousel__slide-speed: 500ms;
     transition-duration: 500ms;
 
 
-    .carousel--playing {
+    .carousel--is-playing &{
       display: none;
     }
 
@@ -310,7 +314,7 @@ $carousel__slide-speed: 500ms;
     width: 10px;
     /*colors*/
 
-    .carousel--playing {
+    .carousel--is-playing &{
       display: block;
     }
 

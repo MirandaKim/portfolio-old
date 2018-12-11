@@ -147,4 +147,4 @@ fixLazyWaypoints.execute();
 /************************************/
 
 let skillCarousel = new Carousel();
-skillCarousel.enable();
+skillCarousel.enable('#carousel-skills');
