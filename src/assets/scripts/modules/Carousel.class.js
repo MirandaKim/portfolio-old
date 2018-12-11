@@ -66,6 +66,7 @@ class Carousel {
     this.isPlaying = false;
     this._itemTime = 8000;
     this.itemLoop;
+    this.itemTimer;
 
     /*carousel element classes*/
     this.elementClasses = {};
@@ -75,6 +76,7 @@ class Carousel {
     this.elementSelectors = {};
     this.elementSelectors.item = '.carousel__item';
     this.elementSelectors.jumpWrapper = '.carousel__jump-controls';
+    this.elementSelectors.timer = '.carousel__timer';
 
     /*data attributes*/
     this.itemIndexAttr = 'data-carousel-index';
@@ -151,6 +153,7 @@ class Carousel {
     this.isPlaying = false;
     this.carousel.removeClass(this.states.isPlayingClass);
     clearInterval(this.itemLoop);
+    this.resetTimer(0);
   }
 
   /*************
@@ -160,7 +163,7 @@ class Carousel {
   next(){
     let targetItem = this.currentItem + 1;
     let nextItem =  targetItem >= this.itemCount ? 0 : targetItem;
-    this.changeActive(nextItem);
+    this.changeActive_keepPlayState(nextItem);
   }
 
   /*****************
@@ -170,7 +173,7 @@ class Carousel {
   previous(){
     let targetItem = this.currentItem - 1;
     let previousItem =  targetItem < 0 ? this.itemCount - 1 : targetItem;
-    this.changeActive(previousItem);
+    this.changeActive_keepPlayState(previousItem);
   }
 
   /*************
@@ -178,7 +181,7 @@ class Carousel {
   *************/
 
   jump(itemIndex = 0){
-    this.changeActive(itemIndex);
+    this.changeActive_keepPlayState(itemIndex);
   }
 
   /**************************************/
@@ -191,6 +194,7 @@ class Carousel {
   initializeCarousel(){
     this.items = this.carousel.find(this.elementSelectors.item)
     this.itemCount = this.items.length;
+    this.itemTimer = $(this.elementSelectors.timer);
     if(this.itemCount > 0){
       this.generateComponents();
       this.setEvent_play();
@@ -263,20 +267,38 @@ class Carousel {
   *   > Item Loop   *
   ******************/
 
-  itemLoop(){
-    setTimeout(()=> {
+  createItemLoop(){
+    this.animateTimer(this._itemTime);
+    /*create interval*/
+    let loop = setInterval(()=>{
+      /*animate timer*/
+      this.animateTimer(this._itemTime);
+      /*go to next slide*/
       this.next();
-      if(this.isPlaying){
-        this.itemLoop();
-      }
+
     }, this._itemTime);
+    /*return loop*/
+    return loop;
   }
 
-  createItemLoop(){
-    let loop = setInterval(()=>{
-      this.next();
-    }, this._itemTime);
-    return loop;
+  /**********************
+  *   > Animate Timer   *
+  **********************/
+
+  animateTimer(time){
+    let resetTime = 100;
+    // this.resetTimer();
+    this.itemTimer.animate({
+      width: 0
+    }, time - resetTime, 'linear', () => {
+      this.resetTimer(resetTime);
+    });
+  }
+
+  resetTimer(resetTime){
+    this.itemTimer.stop(true, true).animate({
+      width: '100%'
+    }, resetTime);
   }
 
   /**********************
@@ -292,13 +314,23 @@ class Carousel {
     let newItem = this.carousel.find(itemSelector);
     /*target new active jump control*/
     let jumpSelector = `${this.controlSelectors.jump}[${this.itemIndexAttr}=${index}]`;
-    console.log(jumpSelector);
     let newJump = this.carousel.find(jumpSelector);
     /*add active class to current carousel elements*/
     $(newItem).addClass(this.states.isCurrentItemClass);
     $(jumpSelector).addClass(this.states.isCurrentJumpClass);
     /*set new index*/
     this.currentItem = index;
+  }
+
+  changeActive_keepPlayState(itemIndex){
+    if(this.isPlaying){
+      this.pause();
+      this.changeActive(itemIndex);
+      this.play();
+    }
+    else{
+      this.changeActive(itemIndex);
+    }
   }
 
 }

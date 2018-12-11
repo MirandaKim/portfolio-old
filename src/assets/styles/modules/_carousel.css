@@ -143,6 +143,31 @@ $carousel__slide-speed: 1000ms;
     height: 100%;
   }
 
+  /**************************************/
+  /*   # Timer                         */
+  /************************************/
+  /*represents the time the item will be displayed.
+  this needs to be animated by the script to match the loop time.
+  this should only display when the carousel is activly looping through items.*/
+  &__timer {
+    /*position*/
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /*structure*/
+    height: 5px;
+    width: 100%;
+    /*colors*/
+    background-color: rgba($color_offWhite, .3);
+    opacity: 0;
+    /*shadows*/
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+
+    .carousel--is-playing & {
+      opacity: 1;
+    }
+  }
 
   /**************************************/
   /*   # Controls                      */
