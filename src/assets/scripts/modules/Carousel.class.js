@@ -11,9 +11,12 @@ import $ from 'jquery';
   - Carousel includes play and pause feature.
     The controls to trigger the play/pause events are assumed to be within the selected carousel.
     See the constructor function for the play/pause selectors
-  - The animations are assumed to be handled by CSS,
+  - The animations are assumed to be handled by CSS (with the exception of the progress bar),
     this logic only changes class names based on events.
   - This manages a single carousel. Each carousel should have its own instance of this class.
+  - Progress Bar: The progress bar represents the time left on a slide/item before it switches to the next one.
+    The animation for the progress bar should be controlled in this scripts as it is dependent on the
+    timeloop of the items and is effected by the carousel controls.
   - Controls:
       Play - click to loop through all items (use this.controlSelectors.play when creating in html/css)
       Pause - click to stop item loop (use this.controlSelectors.pause when creating in html/css)
@@ -43,6 +46,8 @@ import $ from 'jquery';
       > Generate Components
       > Set Control Events
       > Item Loop
+      > Animate Progress Bar
+      > Reset Progress Bar
       > Change Active
   # Export
 
@@ -64,9 +69,9 @@ class Carousel {
     this.itemCount = 0;
     this.currentItem = 0;
     this.isPlaying = false;
-    this._itemTime = 8000;
+    this._itemTime = 10000;
     this.itemLoop;
-    this.itemTimer;
+    this.itemProgressBar;
 
     /*carousel element classes*/
     this.elementClasses = {};
@@ -121,9 +126,9 @@ class Carousel {
     this.carousel = $(carouselSelector);
     if(this.carousel){
       /*prep carousel: generate elements and set events*/
-      this.initializeCarousel();
+      this._initializeCarousel();
       /*set the initial active item*/
-      this.changeActive(this.currentItem);
+      this._changeActive(this.currentItem);
       /*begin carousel play if allowed initially*/
       if(beginPlay){
         this.play();
@@ -138,10 +143,9 @@ class Carousel {
   *************/
 
   play(){
-    console.log('carousel is playing');
     this.carousel.addClass(this.states.isPlayingClass);
     this.isPlaying = true;
-    this.itemLoop = this.createItemLoop();
+    this.itemLoop = this._createItemLoop();
   }
 
   /**************
@@ -149,39 +153,43 @@ class Carousel {
   **************/
 
   pause(){
-    console.log('carousel is paused');
     this.isPlaying = false;
     this.carousel.removeClass(this.states.isPlayingClass);
     clearInterval(this.itemLoop);
-    this.resetTimer(0);
+    this._resetProgressBar(0);
   }
 
   /*************
   *   > Next   *
   *************/
 
+  /*Make the next indexed item active in the carousel.
+    This will loop back to the first item if the end is reached.*/
   next(){
     let targetItem = this.currentItem + 1;
     let nextItem =  targetItem >= this.itemCount ? 0 : targetItem;
-    this.changeActive_keepPlayState(nextItem);
+    this._changeActive_keepPlayState(nextItem);
   }
 
   /*****************
   *   > Previous   *
   *****************/
 
+  /*Make the previous indexed item active in the carousel.
+    This will loop to the last item if there is no previous item.*/
   previous(){
     let targetItem = this.currentItem - 1;
     let previousItem =  targetItem < 0 ? this.itemCount - 1 : targetItem;
-    this.changeActive_keepPlayState(previousItem);
+    this._changeActive_keepPlayState(previousItem);
   }
 
   /*************
   *   > Jump   *
   *************/
 
+  /*Make the */
   jump(itemIndex = 0){
-    this.changeActive_keepPlayState(itemIndex);
+    this._changeActive_keepPlayState(itemIndex);
   }
 
   /**************************************/
@@ -191,17 +199,17 @@ class Carousel {
   /****************************
   *   > Initialize Carousel   *
   ****************************/
-  initializeCarousel(){
+  _initializeCarousel(){
     this.items = this.carousel.find(this.elementSelectors.item)
     this.itemCount = this.items.length;
-    this.itemTimer = $(this.elementSelectors.timer);
+    this.progressBar = $(this.elementSelectors.timer);
     if(this.itemCount > 0){
-      this.generateComponents();
-      this.setEvent_play();
-      this.setEvent_pause();
-      this.setEvent_next();
-      this.setEvent_previous();
-      this.setEvent_jump();
+      this._generateComponents();
+      this._setEvent_play();
+      this._setEvent_pause();
+      this._setEvent_next();
+      this._setEvent_previous();
+      this._setEvent_jump();
     }
   }
 
@@ -209,12 +217,21 @@ class Carousel {
   *   > Generate Components   *
   ****************************/
 
-  generateComponents (){
+  /*Create any html components for the carousel:
+    - Generate a jump button for each of the carousel items.
+  */
+  _generateComponents (){
+    this._generateJumpButtons();
+  }
+
+  /*
+  Create a html element to the user to click to jump to a specific carousel item.
+  */
+  _generateJumpButtons(){
     /*jump control wrapper*/
     let jumpWrapper = this.carousel.find(this.elementSelectors.jumpWrapper);
     /*for each item:*/
     $(this.items).each((i, v) => {
-      console.log(i);
       /*give item index attribute*/
       $(v).attr(this.itemIndexAttr, i);
       /*give create jump control for item*/
@@ -228,33 +245,38 @@ class Carousel {
   *   > Set Control Events   *
   ***************************/
 
-  setEvent_play(){
+  /*Set user event to play the carousel animation loop once the 'play' button is clicked*/
+  _setEvent_play(){
     let playButton = this.carousel.find(this.controlSelectors.play);
     $(playButton).click(()=>{
       this.play();
     });
   }
 
-  setEvent_pause(){
+  /*Set user event to pause the carousel animation loop once the 'pause' button is clicked*/
+  _setEvent_pause(){
     let pauseButton = this.carousel.find(this.controlSelectors.pause);
     $(pauseButton).click(()=>{
       this.pause();
     });
   }
 
-  setEvent_next(){
+  /*Set user event to jump to the next carousel item once the 'next' button is clicked*/
+  _setEvent_next(){
     $(this.controlSelectors.next).click(()=>{
       this.next();
     });
   }
 
-  setEvent_previous(){
+  /*Set user event to jump to the previous carousel item once the 'previous' button is clicked*/
+  _setEvent_previous(){
     $(this.controlSelectors.previous).click(()=>{
       this.previous();
     });
   }
 
-  setEvent_jump(){
+  /*Set user event to jump to a specific carousel item once the 'jump' button is clicked.*/
+  _setEvent_jump(){
     let jumps = this.carousel.find(this.controlSelectors.jump);
     $(jumps).click((e)=>{
       let indexStr = $(e.target).attr(this.itemIndexAttr);
@@ -267,36 +289,43 @@ class Carousel {
   *   > Item Loop   *
   ******************/
 
-  createItemLoop(){
-    this.animateTimer(this._itemTime);
+  /*Set interval for changing the active class on the carousel items,
+  and set timer animation for the progress bar.*/
+  _createItemLoop(){
+    this._animateProgressBar(this._itemTime);
     /*create interval*/
     let loop = setInterval(()=>{
       /*animate timer*/
-      this.animateTimer(this._itemTime);
+      this._animateProgressBar(this._itemTime);
       /*go to next slide*/
       this.next();
-
     }, this._itemTime);
     /*return loop*/
     return loop;
   }
 
-  /**********************
-  *   > Animate Timer   *
-  **********************/
+  /*****************************
+  *   > Animate Progress Bar   *
+  *****************************/
 
-  animateTimer(time){
+  /*Start animation of progress bar*/
+  _animateProgressBar(time){
     let resetTime = 100;
-    // this.resetTimer();
-    this.itemTimer.animate({
+    // this.resetProgressBar();
+    this.progressBar.animate({
       width: 0
     }, time - resetTime, 'linear', () => {
-      this.resetTimer(resetTime);
+      this._resetProgressBar(resetTime);
     });
   }
 
-  resetTimer(resetTime){
-    this.itemTimer.stop(true, true).animate({
+  /***************************
+  *   > Reset Progress Bar   *
+  ***************************/
+
+  /*Reset animation bar (bring back to the top--ready for the next slide)*/
+  _resetProgressBar(resetTime){
+    this.progressBar.stop(true, true).animate({
       width: '100%'
     }, resetTime);
   }
@@ -305,7 +334,9 @@ class Carousel {
   *   > Change Active   *
   **********************/
 
-  changeActive(index){
+  /*Change which carousel item is active.
+  This is done by changing which item has the active class.*/
+  _changeActive(index){
     /*remove active class from carousel items*/
     $(this.items).removeClass(this.states.isCurrentItemClass);
     $(this.jumps).removeClass(this.states.isCurrentJumpClass);
@@ -322,14 +353,17 @@ class Carousel {
     this.currentItem = index;
   }
 
-  changeActive_keepPlayState(itemIndex){
+  /*Change active item in the carousel, but prevent a change in play state:
+    if the carousel is currently playing, it will keep playing,
+    if it is plaused, it will stay paused.*/
+  _changeActive_keepPlayState(itemIndex){
     if(this.isPlaying){
       this.pause();
-      this.changeActive(itemIndex);
+      this._changeActive(itemIndex);
       this.play();
     }
     else{
-      this.changeActive(itemIndex);
+      this._changeActive(itemIndex);
     }
   }
 
