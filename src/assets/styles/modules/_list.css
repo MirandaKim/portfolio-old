@@ -19,6 +19,7 @@
     > Horizontal
     > Hang Right
     > No Bullets
+    > Spacing
   # Sub List
   # Link List
     > Full Width
@@ -70,6 +71,23 @@
     list-style: none;
   }
 
+  /***************
+  *  > Spacing   *
+  ***************/
+
+  &--items-bottom-margin {
+    &>li {
+      margin-bottom: 10px;
+    }
+  }
+
+  &--shift-left {
+    /*override browsers*/
+    margin-left: 0;
+    padding-left: 0;
+    /*spacing*/
+    padding-left: 16px;
+  }
 
   /**************************************/
   /*   # Sub List                      */

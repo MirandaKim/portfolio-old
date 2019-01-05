@@ -27,6 +27,10 @@
   *  > Size   *
   ************/
 
+  &--small {
+    font-size: 1.5rem;
+  }
+
   &--medium {
     font-size: 2.5rem;
   }
@@ -42,6 +46,16 @@
   /***************
   *  > Spacing   *
   ***************/
+
+  &--no-bottom-space {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  &--negative-bottom-space {
+    padding-bottom: 0;
+    margin-bottom: -15px;
+  }
 
   &--no-top-space-at-small {
     @mixin atSmall {
