@@ -236,6 +236,8 @@ NOTE: the element and container must both have a position for this to work!
   /*transitions*/
   transition-property: all;
   transition-duration: 100ms;
+  /*typography*/
+  letter-spacing: 1.2px;
 
   &::after {
     content: "";

@@ -21,6 +21,7 @@
     > Modifiers
   # Inline Link
   # Light
+  # Shift Up
   # Displace Till Focus
 
 */
@@ -65,6 +66,17 @@
    &--light {
      /*colors*/
      color: rgb($color_neutralLight);
+   }
+
+   /**************************************/
+   /*   # Shift Up                      */
+   /************************************/
+   &--shift-up {
+     /*position*/
+     top: -2px;
+     /*spacing*/
+     margin-bottom: 8px;
+
    }
 
    /**************************************/
