@@ -69,7 +69,7 @@ class CheckHasTouch {
   The touch event will also be unbound.
   */
   detect(){
-    let target = $('html');
+    let target = $('body');
     target.addClass(this._waitingForTouchClass); // add waiting class initially
     target.addClass(this._removeClassOnTouch); // add
     $(window).on('touchstart', ()=>{
