@@ -14,6 +14,7 @@
 
   # Headline
     > Size
+    > Spacing
 
 */
 
@@ -61,6 +62,32 @@
     @mixin atSmall {
       margin-top: 0;
       padding-top: 0;
+    }
+  }
+
+  &--no-bottom-space-for-tiny {
+    @mixin forTiny {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &--negative-bottom-space-for-tiny {
+    @mixin forTiny {
+      margin-bottom: -15px;
+      padding-bottom: 0;
+    }
+  }
+
+  &--no-bottom-at-squished {
+    @mixin atSquished {
+      margin-bottom: 0;
+    }
+  }
+
+  &--negative-bottom-at-squished {
+    @mixin atSquished {
+      margin-bottom: -15px;
     }
   }
 

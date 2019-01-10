@@ -21,6 +21,8 @@
 
   # Variables
   # Carousel
+    > For Tiny
+    > At Small
     > Modifiers
   # Display
   # Item
@@ -59,22 +61,52 @@ $carousel__slide-speed: 1000ms;
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
+  /*spacing*/
+  margin-left: auto;
+  margin-right: auto;
 
+  /****************
+  *  > For Tiny   *
+  ****************/
+
+  @mixin forTiny {
+    @mixin forPortrait {
+      height: calc(80vw - 30px);
+      width: 80vw;
+    }
+    @mixin forLandscape {
+      /*structure*/
+      height: calc(90vh - 30px);
+      width: 90vh;
+
+    }
+  }
+
+  /****************
+  *  > At Small   *
+  ****************/
+
+  @mixin atSmall {
+    height: 320px;
+    width: 350px;
+  }
 
   /*****************
   *  > Modifiers   *
   *****************/
 
-  &--smaller-for-tiny {
+  /* &--smaller-for-tiny {
     @mixin forTiny {
       height: 270px;
       width: 300px;
     }
-  }
+  } */
 
   &--shift-left {
     left: -15px;
   }
+
+
 
   /**************************************/
   /*   # Display                       */
@@ -187,8 +219,9 @@ $carousel__slide-speed: 1000ms;
 
   &__bottom-controls {
     /*display*/
-    display: block;
+    display: table;
     /*position*/
+    z-index: 10;
     position: absolute;
     left: 50%;
     /*spacing*/
@@ -278,6 +311,14 @@ $carousel__slide-speed: 1000ms;
       background-color: $carousel__control-color--hover;
     }
 
+    @mixin forTiny {
+      /*structure*/
+      height: 14px;
+      width: 14px;
+      /*spacing*/
+      margin-right: 14px;
+    }
+
   }
 
   &__jump--active {
@@ -305,6 +346,12 @@ $carousel__slide-speed: 1000ms;
     padding-top: 3px;
     margin-left: 5px;
 
+    @mixin forTiny {
+      /*structure*/
+      height: 15px;
+      width: 15px;
+    }
+
   }
 
   &__play {
@@ -318,6 +365,8 @@ $carousel__slide-speed: 1000ms;
     /*borders*/
     border-style: solid;
     border-width: 8px;
+    /*spacing*/
+    margin-left: 0;
     /*transform*/
     transform: scaleY(.7) rotate(45deg);
     /*colors*/
@@ -337,6 +386,13 @@ $carousel__slide-speed: 1000ms;
     .has-no-touch &:hover {
       border-top-color: $carousel__control-color--hover;
       border-right-color: $carousel__control-color--hover;
+    }
+
+    @mixin forTiny {
+      /*borders*/
+      border-width: 10px;
+      /*spacing*/
+      margin-left: -2px;
     }
 
   }
@@ -389,6 +445,17 @@ $carousel__slide-speed: 1000ms;
     &:hover::before,
     &:hover::after {
       background-color: $carousel__control-color--hover;
+    }
+
+    @mixin forTiny {
+      /*structure*/
+      height: 15px;
+      width: 15px;
+
+      &::after,
+      &::before{
+
+      }
     }
   }
 

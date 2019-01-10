@@ -15,6 +15,7 @@
 
   # Site Footer
     > At Small
+    > At Squished
     > Content
     > Social Icons
   # Fixed Footer
@@ -55,6 +56,16 @@
     padding-left: 60px;
     padding-right: 60px;
   }
+
+  /*******************
+  *  > At Squished   *
+  *******************/
+
+  @mixin atSquished {
+    /*spacing*/
+    padding-left: 200px; /*make room in case the main navigation overlaps the footer*/
+  }
+
 
   /**************************************/
   /*   # Content                       */

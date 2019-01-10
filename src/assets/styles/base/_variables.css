@@ -26,8 +26,8 @@
 /*   # Screen Sizes                  */
 /************************************/
 
-$screen_tiny: 599px; /*Extra small devices (phones, 600px and down)*/
-$screen_small: 600px; /*Small devices (portrait tablets and large phones, 600px and up)*/
+$screen_tiny: 699px; /*Extra small devices (phones, 600px and down)*/
+$screen_small: 700px; /*Small devices (portrait tablets and large phones, 600px and up)*/
 $screen_medium: 768px; /*Medium devices (landscape tablets, 768px and up)*/
 $screen_large: 992px; /*Large devices (laptops/desktops, 992px and up)*/
 $screen_xl: 1200px; /* Extra large devices (large laptops and desktops, 1200px and up)*/

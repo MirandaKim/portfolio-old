@@ -17,6 +17,9 @@
     > At Small
   # Link
     > At Small
+    > At Squished
+    > At Crushed
+    > At Pancake
     > Active Link
   # Skip Main Content
 
@@ -75,6 +78,10 @@
     transition-property: all;
     transition-duration: 500ms;
 
+    /****************
+    *  > At Small   *
+    ****************/
+
     @mixin atSmall {
       /*spacing*/
       margin-bottom: 20px;
@@ -100,6 +107,38 @@
         /*transitions*/
         transition-property: all;
         transition-duration: 500ms;
+      }
+    }
+
+    /*******************
+    *  > At Squished   *
+    *******************/
+
+    @mixin atSquished {
+      @mixin atSmall {
+        margin-bottom: 5px;
+      }
+    }
+
+    /*******************
+    *  > At Crushed   *
+    *******************/
+
+    @mixin atCrushed {
+      @mixin atSmall {
+        /*spacing*/
+        margin-bottom: 0;
+      }
+    }
+
+    /******************
+    *  > At Pancake   *
+    ******************/
+
+    @mixin atPancake {
+      @mixin atSmall {
+        /*spacing*/
+        margin-bottom: -15px;
       }
     }
 

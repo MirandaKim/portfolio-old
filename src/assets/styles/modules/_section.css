@@ -19,11 +19,22 @@
     > Focus
     > Modifiers
     > At Small
+    > For Tiny
+    > Color A
+    > Color B
+    > Color C
+    > Color D
   # Background
     > Parallax
     > At Small
   # Headline
   # Content
+    > Position
+    > Structure
+    > Spacing
+    > Typography
+    > At Small
+    > At Large
   # Image
     > Rounded Corners
     > Drop Shadow
@@ -107,8 +118,20 @@ $section__color-d: rgb($color_d);
       margin-bottom: 0;
     }
 
-
   }
+
+    /****************
+    *  > For Tiny   *
+    *****************/
+
+    @mixin forTiny {
+
+      @mixin forLandscape {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+    }
 
     /***************
     *  > Color A   *
@@ -250,9 +273,22 @@ $section__color-d: rgb($color_d);
     padding-left: 15px;
     padding-right: 30px;
 
-    &--no-left-padding {
-      padding-left: 0;
+    /****************
+    *  > Position   *
+    ****************/
+
+    &--center-vert {
+      top: 50%;
+      transform: translateY(-50%);
     }
+
+    &--shift-down {
+      top: 15%;
+    }
+
+    /*****************
+    *  > Structure   *
+    *****************/
 
     &--restrict-width {
       max-width: $structure_restricted_width;
@@ -262,25 +298,45 @@ $section__color-d: rgb($color_d);
       max-width: 500px;
     }
 
-    &--center-vert {
-      top: 50%;
-      transform: translateY(-50%);
+    /***************
+    *  > Spacing   *
+    ***************/
+
+    &--no-left-padding {
+      padding-left: 0;
     }
 
     &--padding-top-for-tiny {
       @mixin forTiny {
-        padding-top: 50px;
+        padding-top: 0;
       }
     }
 
+    /******************
+    *  > Typography   *
+    ******************/
 
-      @mixin atSmall {
-        margin-left: 10rem;
-        &--center-vert-at-small {
-          top: 50%;
-          transform: translateY(-50%);
-        }
+    &--center-text {
+      text-align: center;
+    }
+
+    &--center-text-for-tiny {
+      @mixin forTiny {
+        text-align: center;
       }
+    }
+
+    /****************
+    *  > At Small   *
+    ****************/
+
+    @mixin atSmall {
+      margin-left: 10rem;
+      &--center-vert-at-small {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
 
     /****************
     *  > At Large   *
