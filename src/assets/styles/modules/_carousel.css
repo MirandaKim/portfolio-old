@@ -62,8 +62,7 @@ $carousel__slide-speed: 1000ms;
   /*position*/
   position: relative;
   /*structure*/
-  height: 320px;
-  width: 350px;
+  width: 100%;
   /*spacing*/
   padding-left: 30px;
   padding-right: 30px;
@@ -77,37 +76,19 @@ $carousel__slide-speed: 1000ms;
   ****************/
 
   @mixin forTiny {
-    @mixin forPortrait {
-      height: calc(80vw - 30px);
-      width: 80vw;
-    }
-    @mixin forLandscape {
-      /*structure*/
-      height: calc(90vh - 30px);
-      width: 90vh;
-
-    }
+    @mixin forPortrait {}
+    @mixin forLandscape {}
   }
 
   /****************
   *  > At Small   *
   ****************/
 
-  @mixin atSmall {
-    height: 320px;
-    width: 350px;
-  }
+  @mixin atSmall {}
 
   /*****************
   *  > Modifiers   *
   *****************/
-
-  /* &--smaller-for-tiny {
-    @mixin forTiny {
-      height: 270px;
-      width: 300px;
-    }
-  } */
 
   &--shift-left {
     left: -15px;
@@ -123,8 +104,10 @@ $carousel__slide-speed: 1000ms;
     /*position*/
     position: relative;
     /*structure*/
-    height: 100%;
     width: 100%;
+    height: 0; /*apparent height created by bottom padding*/
+    /*spacing*/
+    padding-bottom: calc(100% - 16px); /*determins the height of the display based on the width*/
     /*borders*/
     border-radius: 2px;
     border-style: solid;
@@ -501,7 +484,5 @@ $carousel__slide-speed: 1000ms;
       height: auto;
     }
   }
-
-
 
 }
