@@ -1,4 +1,10 @@
 
+@keyframes noJSCarousel_expandHeight {
+  to {
+    max-height: 3000px;
+  }
+}
+
 /****************************************************/
 /*                                                 */
 /*   Carousel CSS (_carousel.css)              */
@@ -33,6 +39,7 @@
     > Arrows
     > Jump
     > Play Toggle
+  # No JS
 
 
 */
@@ -458,6 +465,43 @@ $carousel__slide-speed: 1000ms;
       }
     }
   }
+
+  /**************************************/
+  /*   # No JS                         */
+  /************************************/
+
+  .has-no-js &--allow-no-js {
+    height: auto;
+
+    .carousel__controls {
+      display: none;
+    }
+
+    .carousel__display {
+      overflow: hidden;
+      height: auto;
+      max-height: 300px;
+      background-color: rgb($color_offWhite);
+      animation-name: noJSCarousel_expandHeight;
+      animation-duration: 5000ms;
+      animation-delay: 1000ms;
+      animation-fill-mode: forwards;
+
+    }
+    .carousel__item {
+      position: relative;
+      z-index: auto;
+      width: 100%;
+      height: auto;
+      opacity: 1;
+    }
+
+    .carousel__image {
+      width: 100%;
+      height: auto;
+    }
+  }
+
 
 
 }

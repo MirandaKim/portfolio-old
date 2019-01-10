@@ -34,6 +34,40 @@
   }
 }
 
+.has-no-js .visible-for-no-js {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 500ms;
+  animation-delay: 1000ms;
+  animation-fill-mode: forwards;
+}
+
+.has-no-js .hide-for-no-js{
+  visibility: hidden;
+}
+
+.has-no-js .hide-for-no-js-for-tiny{
+  @mixin forTiny {
+    visibility: hidden;
+  }
+}
+
+.has-no-js .fade-for-no-js-for-tiny {
+  @mixin forTiny {
+    animation-name: fadeOut;
+    animation-duration: 500ms;
+    animation-delay: 1000ms;
+    animation-fill-mode: forwards;
+  }
+}
+
+.has-no-js .fade-for-no-js{
+  animation-name: fadeOut;
+  animation-duration: 500ms;
+  animation-delay: 1000ms;
+  animation-fill-mode: forwards;
+}
+
 /**************************************/
 /*   # Position                      */
 /************************************/
