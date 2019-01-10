@@ -266,25 +266,6 @@ $header__menu-transition-time: 1000ms;
       }
     }
 
-    /*****************
-    *  > Has No JS   *
-    *****************/
-
-    .has-no-js & {
-      /*position*/
-      position: relative;
-      left: 0;
-      /*structure*/
-      height: auto;
-      width: 100%;
-
-      @mixin forTiny {
-        /*spacing*/
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-    }
 
 
   }
