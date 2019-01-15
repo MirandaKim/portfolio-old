@@ -16,6 +16,8 @@
   # Main Navigation
     > At Small
   # Link
+    > On Focus
+    > On Hover
     > At Small
     > At Squished
     > At Crushed
@@ -42,6 +44,7 @@
   font-size: 1.2rem;
   /*overflow*/
   overflow-y: scroll;
+
 
   /****************
   *  > At Small   *
@@ -79,6 +82,22 @@
     transition-duration: 500ms;
 
     /****************
+    *  > On Focus   *
+    ****************/
+
+    &:not(&--active):focus {
+      color: rgb($color_accentSec);
+    }
+
+    .has-no-touch &:not(&--active):hover {
+      /*colors*/
+      color: rgb($color_accentSec);
+    }
+    &--active-color-a--at-small.active {
+      color: rgb($color_a);
+    }
+
+    /****************
     *  > At Small   *
     ****************/
 
@@ -108,7 +127,9 @@
         transition-property: all;
         transition-duration: 500ms;
       }
+
     }
+
 
     /*******************
     *  > At Squished   *
@@ -207,24 +228,6 @@
       box-shadow: 3px 3px 10px rgba(0, 0, 0, .3);
     }
 
-    /****************
-    *  > At Small   *
-    ****************/
-
-    @mixin atSmall {
-
-      &.active {
-        /* color: rgb($color_accentSec); */
-      }
-
-        .has-no-touch &:not(&--active):hover {
-          /*colors*/
-          color: rgb($color_accentSec);
-        }
-        &--active-color-a--at-small.active {
-          color: rgb($color_a);
-        }
-    }
 
 
   }

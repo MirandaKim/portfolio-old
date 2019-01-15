@@ -211,9 +211,11 @@ $header__menu-transition-time: 1000ms;
     transition-property: left;
     transition-duration: $header__menu-transition-time;
 
-    .--menu-visible &{
-      /*position*/
-      left: 0;
+    @mixin forTiny {
+      .--menu-visible &{
+        /*position*/
+        left: 0;
+      }
     }
 
 
@@ -275,6 +277,7 @@ $header__menu-transition-time: 1000ms;
   /************************************/
 
   &__menu-toggle {
+    @mixin overrideButton();
     /*position*/
     position: fixed;
     top: 10px;
