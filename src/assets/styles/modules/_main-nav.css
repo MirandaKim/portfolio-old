@@ -89,12 +89,13 @@
       color: rgb($color_accentSec);
     }
 
+    /****************
+    *  > On Hover   *
+    ****************/
+
     .has-no-touch &:not(&--active):hover {
       /*colors*/
       color: rgb($color_accentSec);
-    }
-    &--active-color-a--at-small.active {
-      color: rgb($color_a);
     }
 
     /****************
@@ -196,6 +197,9 @@
       color: rgb($color_a);
       box-shadow: unset;
       background-color: transparent;
+    }
+    &--active-color-a--at-small.active {
+      color: rgb($color_a);
     }
 
     &--active-bkgrd-a.active {
