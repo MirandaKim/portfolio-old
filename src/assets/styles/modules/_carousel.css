@@ -39,6 +39,7 @@
     > Arrows
     > Jump
     > Play Toggle
+    > Play Toggle (Focus)
   # No JS
 
 
@@ -63,6 +64,7 @@ $carousel__slide-speed: 1000ms;
   position: relative;
   /*structure*/
   width: 100%;
+  max-width: 500px;
   /*spacing*/
   padding-left: 30px;
   padding-right: 30px;
@@ -76,8 +78,17 @@ $carousel__slide-speed: 1000ms;
   ****************/
 
   @mixin forTiny {
-    @mixin forPortrait {}
-    @mixin forLandscape {}
+    @mixin forPortrait {
+      /*position*/
+      left: -30px;
+      /*struture*/
+      width: calc(100% + 60px);
+
+    }
+    @mixin forLandscape {
+
+      max-width: 70%;
+    }
   }
 
   /****************
@@ -227,6 +238,9 @@ $carousel__slide-speed: 1000ms;
   &__arrow {
     /*mixin*/
     @mixin overrideButton();
+    /*position*/
+    position: absolute;
+    top: calc(50% - 14px);
     /*structure*/
     height: 14px;
     width: 14px;
@@ -245,12 +259,26 @@ $carousel__slide-speed: 1000ms;
       /*colors*/
       border-color: $carousel__control-color--hover;
     }
+
+    /*focus*/
+    &:focus {
+      outline: none;
+      border-color: $carousel__control-color--hover;
+    }
+
+    @mixin forTiny {
+      /*position*/
+      top: calc(50% - 20px);
+      /*structure*/
+      height: 20px;
+      width: 20px;
+    }
+
+
   }
 
   &__arrow--right {
     /*position*/
-    position: absolute;
-    top: 47%;
     right: 5px;
     /*transform*/
     transform: rotate(135deg);
@@ -258,8 +286,6 @@ $carousel__slide-speed: 1000ms;
 
   &__arrow--left {
     /*position*/
-    position: absolute;
-    top: 47%;
     left: 5px;
     /*transform*/
     transform: rotate(-45deg);
@@ -328,18 +354,19 @@ $carousel__slide-speed: 1000ms;
     display: inline-block;
     /*position*/
     position: relative;
+    top: 3px;
     /*structure*/
-    height: 12px;
-    width: 12px;
-    /* background-color: green; */
+    height: 16px;
+    width: 16px;
     /*spacing*/
-    padding-top: 3px;
     margin-left: 5px;
 
     @mixin forTiny {
+      /*position*/
+      top: 2px;
       /*structure*/
-      height: 15px;
-      width: 15px;
+      height: 18px;
+      width: 18px;
     }
 
   }
@@ -347,42 +374,56 @@ $carousel__slide-speed: 1000ms;
   &__play {
     /*position*/
     position: absolute;
-    left: -8px;
-    top: -1px;
     /*structure*/
-    height: 0;
-    width: 0;
-    /*borders*/
-    border-style: solid;
-    border-width: 8px;
-    /*spacing*/
-    margin-left: 0;
-    /*transform*/
-    transform: scaleY(.7) rotate(45deg);
-    /*colors*/
-    border-left-color: transparent;
-    border-top-color: $carousel__control-color;
-    border-right-color: $carousel__control-color;
-    border-bottom-color: transparent;
-    /*transition*/
-    transition-property: all;
-    transition-duration: 500ms;
+    height: 100%;
+    width: 100%;
+
+    &::after {
+      content: '';
+      /*display*/
+      display: block;
+      /*position*/
+      position: absolute;
+      top: -8px;
+      left: -6px;
+      /*structure*/
+      height: 0;
+      width: 0;
+      /*borders*/
+      border-style: solid;
+      border-width: 8px;
+      /*spacing*/
+      margin-left: 0;
+      /*transform*/
+      transform: scaleY(.7) rotate(45deg);
+      /*colors*/
+      border-left-color: transparent;
+      border-top-color: $carousel__control-color;
+      border-right-color: $carousel__control-color;
+      border-bottom-color: transparent;
+      /*transition*/
+      transition-property: all;
+      transition-duration: 500ms;
+    }
 
 
     .carousel--is-playing &{
       display: none;
     }
 
-    .has-no-touch &:hover {
+    .has-no-touch &:hover::after {
       border-top-color: $carousel__control-color--hover;
       border-right-color: $carousel__control-color--hover;
     }
 
     @mixin forTiny {
-      /*borders*/
-      border-width: 10px;
-      /*spacing*/
-      margin-left: -2px;
+      &::after {
+        /*position*/
+        left: -8px;
+        top: -9px;
+        /*borders*/
+        border-width: 10px;
+      }
     }
 
   }
@@ -392,10 +433,8 @@ $carousel__slide-speed: 1000ms;
     display: none; /*dispays with parent class, see below*/
     /*position*/
     position: relative;
-    top: -2px;
-    left: -2px;
     /*structure*/
-    height: 13px;
+    height: 14px;
     width: 12px;
 
     .carousel--is-playing &{
@@ -413,7 +452,7 @@ $carousel__slide-speed: 1000ms;
       left: 0;
       /*structure*/
       height: 100%;
-      width: 35%;
+      width: 4px;
       /*colors*/
       background-color: $carousel__control-color;
     }
@@ -428,7 +467,7 @@ $carousel__slide-speed: 1000ms;
       right: 0;
       /*structure*/
       height: 100%;
-      width: 35%;
+      width: 4px;
       /*colors*/
       background-color: $carousel__control-color;
     }
@@ -439,13 +478,32 @@ $carousel__slide-speed: 1000ms;
 
     @mixin forTiny {
       /*structure*/
-      height: 15px;
+      height: 16px;
       width: 15px;
 
       &::after,
       &::before{
-
+        width: 5px;
       }
+    }
+  }
+
+  /***************************
+  *  > Play Toggle (Focus)   *
+  ***************************/
+
+  &__play-toggle:focus {
+    outline: none;
+  }
+  &__play-toggle:focus-within {
+    .carousel__pause::before,
+    .carousel__pause::after {
+      background-color: $carousel__control-color--hover;
+    }
+
+    .carousel__play::after {
+      border-top-color: $carousel__control-color--hover;
+      border-right-color: $carousel__control-color--hover;
     }
   }
 
@@ -454,17 +512,28 @@ $carousel__slide-speed: 1000ms;
   /************************************/
 
   .has-no-js &--allow-no-js {
+    /*structure*/
     height: auto;
 
     .carousel__controls {
+      /*display*/
       display: none;
     }
 
     .carousel__display {
+      /*overflow*/
       overflow: hidden;
+      /*structure*/
       height: auto;
-      max-height: 300px;
+      max-height: 200px;
+      /*spacing*/
+      padding-bottom: 0;
+      /*colors*/
       background-color: rgb($color_offWhite);
+      /*animation*/
+      /*expand carousel to show all images when JS is not available
+      has-no-js in the initial class so the animation exists (and is delayed)
+      so the height of all the images does not effect an experiance with JS.*/
       animation-name: noJSCarousel_expandHeight;
       animation-duration: 5000ms;
       animation-delay: 1000ms;
@@ -472,14 +541,18 @@ $carousel__slide-speed: 1000ms;
 
     }
     .carousel__item {
+      /*position*/
       position: relative;
       z-index: auto;
+      /*structure*/
       width: 100%;
       height: auto;
+      /*colors*/
       opacity: 1;
     }
 
     .carousel__image {
+      /*structure*/
       width: 100%;
       height: auto;
     }
