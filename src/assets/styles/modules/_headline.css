@@ -55,7 +55,7 @@
 
   &--negative-bottom-space {
     padding-bottom: 0;
-    margin-bottom: -15px;
+    margin-bottom: -5px;
   }
 
   &--no-top-space-at-small {
