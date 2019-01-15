@@ -113,8 +113,8 @@ let section_selector = '.section';
 let section_activeLinkClassStr = `active ${mainNav_block}__link--active`;
 
 let sectionChange = new SectionChange(section_selector, section_activeLinkClassStr);
-sectionChange.scrollUpOffset = "-30%";
-sectionChange.scrollDownOffset="40%";
+sectionChange.scrollUpOffset = "-50%";
+sectionChange.scrollDownOffset="50%";
 sectionChange.setEvents();
 
 /**************************************/
