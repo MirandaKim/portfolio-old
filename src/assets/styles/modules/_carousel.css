@@ -29,18 +29,20 @@
   # Carousel
     > For Tiny
     > At Small
-    > Modifiers
+    > Sizing
+    > Position
   # Display
   # Item
   # Image
-    > Modifiers
+    > Sizing
+    > No JS
   # Controls
     > Bottom Controls
     > Arrows
     > Jump
     > Play Toggle
     > Play Toggle (Focus)
-  # No JS
+  # Carousel No JS
 
 
 */
@@ -48,6 +50,8 @@
 /**************************************/
 /*   # Variables                     */
 /************************************/
+
+$carousel__arrow-padding: 30px;
 
 $carousel__control-color: rgba($color_offWhite, .5);
 $carousel__control-color--hover: rgba($color_accentSec, 1);
@@ -64,14 +68,14 @@ $carousel__slide-speed: 1000ms;
   position: relative;
   /*structure*/
   width: 100%;
-  max-width: 500px;
   /*spacing*/
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
+  padding-left: $carousel__arrow-padding;
+  padding-right: $carousel__arrow-padding;
+  padding-bottom: $carousel__arrow-padding;
   /*spacing*/
   margin-left: auto;
   margin-right: auto;
+
 
   /****************
   *  > For Tiny   *
@@ -97,14 +101,45 @@ $carousel__slide-speed: 1000ms;
 
   @mixin atSmall {}
 
-  /*****************
-  *  > Modifiers   *
-  *****************/
+  /**************
+  *  > Sizing   *
+  **************/
+
+  &--max-500 {
+    max-width: 500px;
+  }
+
+  &--max-600 {
+    max-width: 600px;
+  }
+
+  &--max-800 {
+    max-width: 800px;
+  }
+
+  &--bleed {
+    /*position*/
+    left: calc($carousel__arrow-padding / -2);
+    /*structure*/
+    width: calc(100% + ($carousel__arrow-padding * 1.5));
+
+  }
+
+  /****************
+  *  > Position   *
+  ****************/
 
   &--shift-left {
     left: -15px;
   }
 
+  /***************
+  *  > Spacing   *
+  ***************/
+
+  &--top-space {
+    padding-top: 20px;
+  }
 
 
   /**************************************/
@@ -168,9 +203,9 @@ $carousel__slide-speed: 1000ms;
   &__image {}
 
 
-  /*****************
-  *  > Modifiers   *
-  *****************/
+  /**************
+  *  > Sizing   *
+  **************/
 
   &__image--fit-width {
     width: 100%;
@@ -180,6 +215,17 @@ $carousel__slide-speed: 1000ms;
     height: 100%;
   }
 
+  /*************
+  *  > No JS   *
+  *************/
+
+  &__image--no-js-overlay {
+    /*position*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
 
 
   /**************************************/
@@ -508,8 +554,9 @@ $carousel__slide-speed: 1000ms;
   }
 
   /**************************************/
-  /*   # No JS                         */
+  /*   # Carousel No JS                */
   /************************************/
+
 
   .has-no-js &--allow-no-js {
     /*structure*/
@@ -525,7 +572,7 @@ $carousel__slide-speed: 1000ms;
       overflow: hidden;
       /*structure*/
       height: auto;
-      max-height: 200px;
+      max-height: 288px;
       /*spacing*/
       padding-bottom: 0;
       /*colors*/

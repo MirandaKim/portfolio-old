@@ -81,7 +81,7 @@
 /*********************
 *   > Tiny Screen   *
 *********************/
-/* Extra small devices (phones, 600px and down) */
+/* Extra small devices (e.g. phones) */
 @define-mixin forTiny {
   @media only screen and (max-width: $screen_tiny) {
     @mixin-content;
@@ -92,7 +92,7 @@
 /*********************
 *   > Small Screen   *
 *********************/
-/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Small devices (e.g. portrait tablets and large phones) */
 @define-mixin atSmall {
   @media only screen and (min-width: $screen_small) {
     @mixin-content;
@@ -102,7 +102,7 @@
 /**********************
 *   > Medium Screen   *
 **********************/
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices (e.g. landscape tablets) */
 @define-mixin atMedium {
   @media only screen and (min-width: $screen_medium) {
     @mixin-content;
@@ -112,7 +112,7 @@
 /*********************
 *   > Large Screen   *
 *********************/
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices (e.g. laptops/desktops) */
 @define-mixin atLarge {
   @media only screen and (min-width: $screen_large) {
     @mixin-content;
@@ -122,7 +122,7 @@
 /******************
 *   > XL Screen   *
 ******************/
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* Extra large devices (e.g. large laptops and desktops) */
 @define-mixin atXL {
   @media only screen and (min-width: $screen_xl) {
     @mixin-content;
@@ -132,7 +132,7 @@
 /******************
 *   > XXL Screen   *
 ******************/
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* Extra large devices (e.g. large laptops and desktops) */
 @define-mixin atXXL {
   @media only screen and (min-width: $screen_xxl) {
     @mixin-content;

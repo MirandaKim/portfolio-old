@@ -1,8 +1,42 @@
+
+/****************************************************/
+/*                                                 */
+/*   LazySizes CSS (_lazysizes.css)               */
+/*                                               */
+/************************************************/
+/*
+
+  - This file contains styles involved in the functionality of the
+    third party module LazySizes (https://github.com/aFarkas/lazysizes).
+  - Currently this file contains styles for when an image is initially blurred (pre-load)
+    and the styles after the image has been loaded (unblur the loaded image).
+
+  *************
+  * Contents: *
+  *************
+
+  # Blur
+    > Initial
+    > Loaded
+
+
+*/
+
+/**************************************/
+/*   # Blur                          */
+/************************************/
 .blur-up {
+
+    /***************
+    *  > Initial   *
+    ***************/
     filter: blur(8px);
     transition-property: all;
     transition-duration: 500ms;
 
+    /**************
+    *  > Loaded   *
+    **************/
     &.lazyloaded {
       filter: blur(0);
     }

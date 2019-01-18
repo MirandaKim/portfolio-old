@@ -26,11 +26,11 @@
 /*   # Screen Sizes                  */
 /************************************/
 
-$screen_tiny: 699px; /*Extra small devices (phones, 600px and down)*/
-$screen_small: 700px; /*Small devices (portrait tablets and large phones, 600px and up)*/
-$screen_medium: 768px; /*Medium devices (landscape tablets, 768px and up)*/
-$screen_large: 992px; /*Large devices (laptops/desktops, 992px and up)*/
-$screen_xl: 1200px; /* Extra large devices (large laptops and desktops, 1200px and up)*/
+$screen_tiny: 699px; /*Extra small devices (e.g. phones)*/
+$screen_small: 700px; /*Small devices (e.g. portrait tablets and large phones)*/
+$screen_medium: 850px; /*Medium devices (e.g. landscape tablets)*/
+$screen_large: 992px; /*Large devices (e.g. laptops/desktops)*/
+$screen_xl: 1200px; /* Extra large devices (e.g. large laptops and desktops)*/
 $screen_xxl: 2000px; /* For thos extra-extra screens*/
 
 /*The following sizes (squished, crushed, pancake) are for intended for brower windows with small height.*/
