@@ -43,7 +43,7 @@
   /*typography*/
   font-size: 1.2rem;
   /*overflow*/
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 
 
   /****************
@@ -199,7 +199,9 @@
       background-color: transparent;
     }
     &--active-color-a--at-small.active {
-      color: rgb($color_a);
+      @mixin atSmall {
+        color: rgb($color_a);
+      }
     }
 
     &--active-bkgrd-a.active {
