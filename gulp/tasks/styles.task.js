@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const postcss = require('gulp-postcss');
-const cssnano = require('gulp-cssnano');
+// const cssnano = require('gulp-cssnano')({zindex:false});
+const cleanCss = require('gulp-clean-css');
 const autoprefixer = require('autoprefixer');
 const cssvars = require('postcss-simple-vars');
 const nested = require('postcss-nested');
@@ -94,7 +95,8 @@ gulp.task('styles--prod', gulp.series(() => {
   let plugins = basePlugins.concat(prodPlugins);
   return gulp.src(srcStyles)
   .pipe(postcss(plugins)) // postcss processing
-  .pipe(cssnano()) // minimize resulting css
+//  .pipe(cssnano()) // minimize resulting css
+  .pipe(cleanCss({compatibility: 'ie8'}))
   .on('error', function(errorInfo){ // handle error
     console.log(errorInfo.toString());
     this.emit('end');

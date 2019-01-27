@@ -81,6 +81,7 @@ gulp.task('build', gulp.series(
   'build_beginClean',
   'copyGeneral--prod',
   'images--prod',
+  'favicons--prod',
   'scripts--prod',
   'styles--prod',
   'html--prod',
