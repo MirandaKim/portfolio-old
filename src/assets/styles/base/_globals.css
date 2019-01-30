@@ -18,6 +18,7 @@
   # Body
   # Text Elements
   # Links
+  # Images
 
 */
 
@@ -55,4 +56,12 @@ p, dd, li {
 a,
 button {
   cursor: pointer;
+}
+
+/**************************************/
+/*   # Images                        */
+/************************************/
+
+figure {
+  margin: 0;
 }

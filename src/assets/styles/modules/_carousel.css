@@ -160,7 +160,7 @@ $carousel__slide-speed: 1000ms;
     border-width: 3px;
     border-color: rgba($color_offWhite, .7);
     /*overflow*/
-    overflow: hidden;
+    /* overflow: hidden; */
     /*shadows*/
     box-shadow: 0 0 10px rgba(0, 0, 0, .4);
   }
@@ -185,7 +185,7 @@ $carousel__slide-speed: 1000ms;
     /*colors*/
     opacity: 0;
     /*overflow*/
-    overflow: hidden;
+    /* overflow: hidden; */
     /*transition*/
     transition-property: all;
     transition-duration: $carousel__slide-speed;
@@ -199,6 +199,16 @@ $carousel__slide-speed: 1000ms;
   /**************************************/
   /*   # Image                         */
   /************************************/
+
+  &__image-wrapper {
+    /*position*/
+    position: relative;
+    /*structure*/
+    height: 100%;
+    width: 100%;
+    /*overflow*/
+    overflow: hidden;
+  }
 
   &__image {}
 
@@ -225,6 +235,28 @@ $carousel__slide-speed: 1000ms;
     top: 0;
     left: 0;
     z-index: 10;
+  }
+
+  /**************************************/
+  /*   # Caption                       */
+  /************************************/
+
+  &__caption {
+    /*position*/
+    position: absolute;
+    bottom: -2.2rem;
+    left: -40px;
+    /*structure*/
+    width: calc(100% + 80px);
+    /*spacing*/
+    padding-bottom: 3px;
+    padding-top: 3px;
+    /*colors*/
+    color: rgba($color_offWhite, .9);
+    /*typography*/
+    text-align: center;
+    letter-spacing: 1.2px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, .4);
   }
 
 
@@ -272,7 +304,7 @@ $carousel__slide-speed: 1000ms;
     position: absolute;
     left: 50%;
     /*spacing*/
-    margin-top: 8px;
+    margin-top: 2.5rem;
     /*transform*/
     transform: translateX(-50%);
   }
