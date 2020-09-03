@@ -9,7 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.4.1",
-    "lazysizes": "^4.1.1",
+    "lazysizes": "^5.2.1",
     "normalize.css": "^8.0.0",
     "waypoints": "^4.0.1"
   },
